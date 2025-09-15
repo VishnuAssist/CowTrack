@@ -18,27 +18,35 @@ import {
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
 
-const SidebarWrapper = styled(Box)(
-  ({ theme }) => `
-        width: ${theme.sidebar.width};
-        min-width: ${theme.sidebar.width};
-        color: ${theme.colors.alpha.trueWhite[70]};
-        position: relative;
-        z-index: 7;
-        height: 100%;
-        padding-bottom: 68px;
-`
-);
-
-function Sidebar() {
+function Sidebar({
+  expanded,
+  setExpanded
+}: {
+  expanded: boolean;
+  setExpanded: (e: boolean) => void;
+}) {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
+  const handleToggle = () => setExpanded(!expanded);
   const theme = useTheme();
 
+  const SidebarWrapper = styled(Box)(
+    ({ theme }) => `
+  
+     
+          color: ${theme.colors.alpha.trueWhite[70]};
+          position: relative;
+          z-index: 7;
+          height: 100%;
+         
+  `
+  );
   return (
     <>
       <SidebarWrapper
         sx={{
+          pb: expanded ? 16 : 14,
+          width: expanded ? theme.sidebar.width : 80,
           display: {
             xs: 'none',
             lg: 'inline-block'
@@ -48,7 +56,13 @@ function Sidebar() {
           top: 0,
           background:
             theme.palette.mode === 'dark'
-              ? alpha(lighten(theme.header.background, 0.1), 0.5)
+              ? alpha(
+                  lighten(
+                    theme.header.background || theme.colors.alpha.black[100],
+                    0.1
+                  ),
+                  0.5
+                )
               : darken(theme.colors.alpha.black[100], 0.5),
           boxShadow:
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
@@ -72,7 +86,11 @@ function Sidebar() {
               background: theme.colors.alpha.trueWhite[10]
             }}
           />
-          <SidebarMenu />
+         <SidebarMenu
+            expanded={expanded}
+            expand={handleToggle}
+            mobile={false}
+          />
         </Scrollbar>
         <Divider
           sx={{
@@ -129,7 +147,7 @@ function Sidebar() {
                 background: theme.colors.alpha.trueWhite[10]
               }}
             />
-            <SidebarMenu />
+             <SidebarMenu expanded={true} expand={handleToggle} mobile={true} />
           </Scrollbar>
         </SidebarWrapper>
       </Drawer>
