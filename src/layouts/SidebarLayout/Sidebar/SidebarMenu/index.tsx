@@ -16,11 +16,6 @@ import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone
 import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
 import BallotTwoToneIcon from '@mui/icons-material/BallotTwoTone';
 
-// import CheckBoxTwoToneIcon from '@mui/icons-material/CheckBoxTwoTone';
-// import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwoTone';
-// import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
-// import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
-
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -244,68 +239,57 @@ function SidebarMenu({
                   MilkDiary
                 </Button>
               </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/CowInfo"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  CowInfo
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/ExpenseTracker"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  ExpenseTracker
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/CowCare"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  CowCare
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/FarmerJoin"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  
+                  FarmerJoin
+                </Button>
+              </ListItem>
            
             </List>
           </SubMenuWrapper>
         </List>
 
-        {/* <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Extra Pages
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
-              <ListItem component="div">
-                <Button
-                  disableRipple
-                  component={RouterLink}
-                  onClick={closeSidebar}
-                  to="/status/404"
-                  startIcon={<CheckBoxTwoToneIcon />}
-                >
-                  Error 404
-                </Button>
-              </ListItem>
-              <ListItem component="div">
-                <Button
-                  disableRipple
-                  component={RouterLink}
-                  onClick={closeSidebar}
-                  to="/status/500"
-                  startIcon={<CameraFrontTwoToneIcon />}
-                >
-                  Error 500
-                </Button>
-              </ListItem>
-              <ListItem component="div">
-                <Button
-                  disableRipple
-                  component={RouterLink}
-                  onClick={closeSidebar}
-                  to="/status/coming-soon"
-                  startIcon={<ChromeReaderModeTwoToneIcon />}
-                >
-                  Coming Soon
-                </Button>
-              </ListItem>
-              <ListItem component="div">
-                <Button
-                  disableRipple
-                  component={RouterLink}
-                  onClick={closeSidebar}
-                  to="/status/maintenance"
-                  startIcon={<WorkspacePremiumTwoToneIcon />}
-                >
-                  Maintenance
-                </Button>
-              </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List> */}
+     
       </MenuWrapper>
     </>
   );
