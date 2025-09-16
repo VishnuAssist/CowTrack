@@ -9,7 +9,8 @@ import {
   IconButton,
   Tooltip,
   styled,
-  useTheme
+  useTheme,
+  useMediaQuery
 } from '@mui/material';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import { SidebarContext } from 'src/contexts/SidebarContext';
@@ -24,7 +25,8 @@ import HeaderMenu from './Menu';
 function Header({ expand }: { expand: boolean }) {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const theme = useTheme();
-
+  
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const HeaderWrapper = styled(Box)(
     ({ theme }) => `
           height: ${theme.header.height};
@@ -77,6 +79,8 @@ function Header({ expand }: { expand: boolean }) {
       <Box display="flex" alignItems="center">
         <HeaderButtons />
         <HeaderUserbox />
+
+            {!isMobile && (
         <Box
           component="span"
           sx={{
@@ -94,6 +98,7 @@ function Header({ expand }: { expand: boolean }) {
             </IconButton>
           </Tooltip>
         </Box>
+            )}
       </Box>
     </HeaderWrapper>
   );

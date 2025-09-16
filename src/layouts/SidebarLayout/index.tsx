@@ -107,7 +107,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
                     to="/dashboards/CowDashboard"
                   />
                   <BottomNavigationAction
-                    label="Claims"
+                    label="Milk Diary"
                     icon={<PetsIcon />}
                     component={Link}
                     to="/components/MilkDiary"
