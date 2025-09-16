@@ -114,7 +114,8 @@ function Sidebar({
             background:
               theme.palette.mode === 'dark'
                 ? theme.colors.alpha.white[100]
-                : darken(theme.colors.alpha.black[100], 0.5)
+                : darken(theme.colors.alpha.black[100], 0.5),
+                width: theme.sidebar.width,
           }}
         >
           <Scrollbar>
