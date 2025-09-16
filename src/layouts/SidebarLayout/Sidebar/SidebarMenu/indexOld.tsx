@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { useContext } from 'react';
 
 import {
   ListSubheader,
@@ -7,18 +7,15 @@ import {
   List,
   styled,
   Button,
-  ListItem,
-  TooltipProps,
-  Tooltip,
-  tooltipClasses,
-} from "@mui/material";
-import { NavLink as RouterLink } from "react-router-dom";
+  ListItem
+} from '@mui/material';
+import { NavLink as RouterLink } from 'react-router-dom';
 import { SidebarContext } from 'src/contexts/SidebarContext';
 
-import { RootState, useAppSelector } from "../../../../store/configureStore";
+import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
+import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
+import BallotTwoToneIcon from '@mui/icons-material/BallotTwoTone';
 
-import { getMenuItems } from "./Lists";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -71,7 +68,7 @@ const SubMenuWrapper = styled(Box)(
 
           .MuiButton-startIcon,
           .MuiButton-endIcon {
-            transition: ${theme.transitions.create(["color"])};
+            transition: ${theme.transitions.create(['color'])};
 
             .MuiSvgIcon-root {
               font-size: inherit;
@@ -135,8 +132,8 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-                  "transform",
-                  "opacity",
+                  'transform',
+                  'opacity'
                 ])};
                 width: 6px;
                 height: 6px;
@@ -161,22 +158,7 @@ const SubMenuWrapper = styled(Box)(
     }
 `
 );
-const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: theme.colors.alpha.trueWhite[100],
-    color: theme.palette.getContrastText(theme.colors.alpha.trueWhite[100]),
-    fontSize: theme.typography.pxToRem(12),
-    fontWeight: "bold",
-    borderRadius: theme.general.borderRadiusSm,
-    boxShadow:
-      "0 .2rem .8rem rgba(7,9,25,.18), 0 .08rem .15rem rgba(7,9,25,.15)",
-  },
-  [`& .${tooltipClasses.arrow}`]: {
-    color: theme.colors.alpha.trueWhite[100],
-  },
-}));
+
 function SidebarMenu({
   expanded,
   expand,
@@ -187,94 +169,114 @@ function SidebarMenu({
   mobile: boolean;
 }) {
   const { closeSidebar } = useContext(SidebarContext);
-  const { role } = useAppSelector((state: RootState) => state.login);
-  // const { isAuthenticated, error } = useAppSelector((state) => state.login);
 
-  const renderMenuItems = (items: any) => {
-    return items.map((item: any, index: any) => (
-      <ListItem key={index} component="div">
-        {!expanded ? (
-          <TooltipWrapper title={item?.label} arrow>
-            <Button
-              disableRipple
-              component={RouterLink}
-              onClick={closeSidebar}
-              to={item.link}
-              startIcon={item.icon}
-            >
-              {expanded && item.label}
-            </Button>
-          </TooltipWrapper>
-        ) : (
-          <Button
-            disableRipple
-            component={RouterLink}
-            onClick={closeSidebar}
-            to={item.link}
-            startIcon={item.icon}
-          >
-            {expanded && item.label}
-          </Button>
-        )}
-      </ListItem>
-    ));
-  };
-
-  const renderSidebarItems = () => {
-    const items: any[] = getMenuItems(role);
-    return (
-      <>
-        <SubMenuWrapper>
-          
-          <List component="div">
-            
-            {!mobile && (
+  return (
+    <>
+      <MenuWrapper>
+   
+        <List
+          component="div"
+          subheader={
+            <ListSubheader component="div" disableSticky>
+              Dashboards
+            </ListSubheader>
+          }
+        >
+          <SubMenuWrapper>
+            <List component="div">
+             
               <ListItem component="div">
                 <Button
                   disableRipple
-                  component="a"
-                  onClick={expand}
-                  startIcon={!expanded ? <ChevronRight /> : <ChevronLeft />}
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/dashboards/CowDashboard"
+                  startIcon={<MmsTwoToneIcon />}
                 >
-                  {expanded && "Collapse"}
+                Dasboard
                 </Button>
               </ListItem>
-            )}
-          </List>
-        </SubMenuWrapper>
-        {items.map((group, index) =>
-          expanded ? (
-            <List
-              key={index}
-              component="div"
-              subheader={
-                <ListSubheader component="div" disableSticky>
-                  {group.title}
-                </ListSubheader>
-              }
-            >
-              <SubMenuWrapper>
-                <List component="div">{renderMenuItems(group.items)}</List>
-              </SubMenuWrapper>
+            
             </List>
-          ) : (
-            <Fragment key={index}>
-              {" "}
-              <ListSubheader component="div" disableSticky sx={{ ml: 1 }}>
-                {group?.icon}
-              </ListSubheader>
-              <SubMenuWrapper>
-                {" "}
-                <List component="div">{renderMenuItems(group.items)}</List>
-              </SubMenuWrapper>{" "}
-            </Fragment>
-          )
-        )}
-      </>
-    );
-  };
+          </SubMenuWrapper>
+        </List>
+     
+       
+        <List
+          component="div"
+          subheader={
+            <ListSubheader component="div" disableSticky>
+              Components
+            </ListSubheader>
+          }
+        >
+          <SubMenuWrapper>
+            <List component="div">
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/MilkDiary"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  MilkDiary
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/CowInfo"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  CowInfo
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/ExpenseTracker"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  ExpenseTracker
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/CowCare"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  CowCare
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/components/FarmerJoin"
+                  startIcon={<BallotTwoToneIcon />}
+                >
+                  
+                  FarmerJoin
+                </Button>
+              </ListItem>
+           
+            </List>
+          </SubMenuWrapper>
+        </List>
 
-  return <MenuWrapper>{renderSidebarItems()}</MenuWrapper>;
+     
+      </MenuWrapper>
+    </>
+  );
 }
 
 export default SidebarMenu;

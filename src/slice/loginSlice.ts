@@ -5,6 +5,7 @@ interface LoginState {
   password: string;
   isAuthenticated: boolean;
   error: string | null;
+  role:string;
 }
 
 const initialState: LoginState = {
@@ -12,6 +13,7 @@ const initialState: LoginState = {
   password: "",
   isAuthenticated: false,
   error: null,
+  role:"Admin"
 };
 
 export const loginSlice = createSlice({
