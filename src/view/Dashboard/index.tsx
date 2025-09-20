@@ -1,9 +1,18 @@
-import React from 'react'
+import { Helmet } from "react-helmet-async";
+import PageHeader from "src/components/PageHeader";
+import PageTitleWrapper from "src/components/PageTitleWrapper";
+
 
 const index = () => {
   return (
     <div>
-      dasb
+      <Helmet>
+        <title>Payment</title>
+      </Helmet>
+         <PageTitleWrapper>
+      <PageHeader title ="Logs" btntitle="" icon={""} onActionClick={()=>{}} />
+      </PageTitleWrapper>
+      
     </div>
   )
 }

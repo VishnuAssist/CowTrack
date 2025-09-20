@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const { isAuthenticated, error } = useAppSelector((state) => state.login);
 
   const [username, setUsername] = useState("");
@@ -15,11 +15,13 @@ const LoginPage: React.FC = () => {
   const handleLogin = () => {
     dispatch(setCredentials({ username, password }));
   };
+
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboards/CowDashboard");
     }
   }, [isAuthenticated, navigate]);
+
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -30,13 +32,26 @@ const LoginPage: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       minHeight="100vh"
-      bgcolor="#f5f5f5"
+      sx={{
+        backgroundImage: `url("/image/cow.jpg")`, // your cow image path
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       {!isAuthenticated ? (
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3, width: 350 }}>
-          <Typography variant="h5" fontWeight="bold" textAlign="center" mb={3}>
-            Login
-          </Typography>
+        <Paper
+          elevation={3}
+          sx={{
+            p: 4,
+            borderRadius: 3,
+            width: 350,
+            bgcolor: "rgba(255, 255, 255, 0.1)", // makes card semi-transparent
+            backdropFilter: "blur(-10px)", // adds slight blur for better readability
+            boxShadow: "0px 4px 20px rgba(0,0,0,0.3)", // keeps card visible
+          }}
+        >
+        
 
           <TextField
             fullWidth
@@ -74,7 +89,18 @@ const LoginPage: React.FC = () => {
           </Button>
         </Paper>
       ) : (
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3, width: 350, textAlign: "center" }}>
+        <Paper
+          elevation={3}
+          sx={{
+            p: 4,
+            borderRadius: 3,
+            width: 350,
+            textAlign: "center",
+            bgcolor: "rgba(255, 255, 255, 0.7)",
+            backdropFilter: "blur(6px)",
+            boxShadow: "0px 4px 20px rgba(0,0,0,0.3)",
+          }}
+        >
           <Typography variant="h6" fontWeight="bold" mb={2}>
             Welcome, Vishnu!
           </Typography>
