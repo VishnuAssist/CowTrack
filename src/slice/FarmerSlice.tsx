@@ -1,54 +1,54 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Store } from "../models/Setting";
+import { FarmerAddType, } from "../models/FarmerType";
 
-interface StoreState {
-  storeList: Store[];
-  selectedStore: Store | null;
+interface FarmerState {
+  farmerList: FarmerAddType[];
+  selectedFarmer: FarmerAddType | null;
 }
 
-const initialState: StoreState = {
-  storeList: [
+const initialState: FarmerState = {
+  farmerList: [
     {
         id:1,
-        storecode:"TWG001",
-        country:"Malaysia",
-        status:true
-    }
+        farmerName:"vishnu",
+        age:24,
+        
+    },
   ],
-  selectedStore: null,
+  selectedFarmer: null,
 };
 
-const StoreManagementSlice = createSlice({
-  name: "StoreSlice", 
+const FarmerSlice = createSlice({
+  name: "FarmerSlice", 
   initialState,
   reducers: {
-    addStore: (state, action: PayloadAction<Store>) => {
+    addFarmer: (state, action: PayloadAction<FarmerAddType>) => {
       const id = Math.random() * 100;
-      const store = { ...action.payload, id };
-      state.storeList.push(store);
+      const farmer = { ...action.payload, id };
+      state.farmerList.push(farmer);
     },
-    removeStore: (state, action: PayloadAction<{ id: number }>) => {
-      state.storeList = state.storeList.filter(
-        (store) => store.id !== action.payload.id
+    removeFarmer: (state, action: PayloadAction<{ id: number }>) => {
+      state.farmerList = state.farmerList.filter(
+        (farmer) => farmer.id !== action.payload.id
       );
     },
-    updateStore: (state, action: PayloadAction<Store>) => {
-      state.storeList = state.storeList.map((store) =>
-        store.id === action.payload.id ? action.payload : store
+    updateFarmer: (state, action: PayloadAction<FarmerAddType>) => {
+      state.farmerList = state.farmerList.map((farmer) =>
+        farmer.id === action.payload.id ? action.payload : farmer
       );
     },
-    setSelectedStore: (state, action: PayloadAction<Store | null>) => {
-      state.selectedStore = action.payload;
+    setSelectedFarmer: (state, action: PayloadAction<FarmerAddType | null>) => {
+      state.selectedFarmer = action.payload;
     },
   },
 });
 
 export const {
-  addStore,
-  removeStore,
-  updateStore,
-  setSelectedStore,
-} = StoreManagementSlice.actions;
+  addFarmer,
+  removeFarmer,
+  updateFarmer,
+  setSelectedFarmer,
+} = FarmerSlice.actions;
 
-export default StoreManagementSlice.reducer;
-export type { StoreState };
+export default FarmerSlice.reducer;
+export type { FarmerState };

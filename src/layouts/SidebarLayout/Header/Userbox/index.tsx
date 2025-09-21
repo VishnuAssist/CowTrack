@@ -7,7 +7,7 @@ import {
   Box,
   Button,
   Divider,
-  Hidden,
+  
   lighten,
   List,
   ListItem,
@@ -81,17 +81,17 @@ function HeaderUserbox() {
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
         <Avatar variant="rounded" alt={user.name} src={user.avatar} />
-        <Hidden mdDown>
+         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <UserBoxText>
             <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
             <UserBoxDescription variant="body2">
               {user.jobtitle}
             </UserBoxDescription>
           </UserBoxText>
-        </Hidden>
-        <Hidden smDown>
+        </Box>
+         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <ExpandMoreTwoToneIcon sx={{ ml: 1 }} />
-        </Hidden>
+        </Box>
       </UserBoxButton>
       <Popover
         anchorEl={ref.current}
@@ -117,17 +117,17 @@ function HeaderUserbox() {
         </MenuUserBox>
         <Divider sx={{ mb: 0 }} />
         <List sx={{ p: 1 }} component="nav">
-          <ListItem button to="/management/profile/details" component={NavLink}>
+          <ListItem  to="/management/profile/details" component={NavLink}>
             <AccountBoxTwoToneIcon fontSize="small" />
             <ListItemText primary="My Profile" />
           </ListItem>
           <Modechanger/>
-          <ListItem button to="/dashboards/messenger" component={NavLink}>
+          <ListItem  to="/dashboards/messenger" component={NavLink}>
             <InboxTwoToneIcon fontSize="small" />
             <ListItemText primary="Messenger" />
           </ListItem>
           <ListItem
-            button
+            
             to="/management/profile/settings"
             component={NavLink}
           >

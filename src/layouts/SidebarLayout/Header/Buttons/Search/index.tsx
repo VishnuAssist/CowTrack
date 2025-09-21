@@ -19,7 +19,7 @@ import {
   DialogContent,
   DialogTitle,
   Slide,
-  Hidden
+  
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { TransitionProps } from '@mui/material/transitions';
@@ -148,9 +148,9 @@ function HeaderSearch() {
               </Link>
             </Box>
             <Divider sx={{ my: 1 }} />
-            <List disablePadding>
-              <ListItem button>
-                <Hidden smDown>
+            {/* <List disablePadding>
+              <ListItem component={Button}>
+                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   <ListItemAvatar>
                     <Avatar
                       sx={{
@@ -161,7 +161,7 @@ function HeaderSearch() {
                       <FindInPageTwoToneIcon />
                     </Avatar>
                   </ListItemAvatar>
-                </Hidden>
+                </Box>
                 <Box flex="1">
                   <Box display="flex" justifyContent="space-between">
                     <Link
@@ -188,8 +188,8 @@ function HeaderSearch() {
                 <ChevronRightTwoToneIcon />
               </ListItem>
               <Divider sx={{ my: 1 }} component="li" />
-              <ListItem button>
-                <Hidden smDown>
+              <ListItem component={Button}>
+                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   <ListItemAvatar>
                     <Avatar
                       sx={{
@@ -200,7 +200,7 @@ function HeaderSearch() {
                       <FindInPageTwoToneIcon />
                     </Avatar>
                   </ListItemAvatar>
-                </Hidden>
+                </Box>
                 <Box flex="1">
                   <Box display="flex" justifyContent="space-between">
                     <Link
@@ -226,8 +226,8 @@ function HeaderSearch() {
                 <ChevronRightTwoToneIcon />
               </ListItem>
               <Divider sx={{ my: 1 }} component="li" />
-              <ListItem button>
-                <Hidden smDown>
+              <ListItem component={Button}>
+                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   <ListItemAvatar>
                     <Avatar
                       sx={{
@@ -238,7 +238,7 @@ function HeaderSearch() {
                       <FindInPageTwoToneIcon />
                     </Avatar>
                   </ListItemAvatar>
-                </Hidden>
+                </Box>
                 <Box flex="1">
                   <Box display="flex" justifyContent="space-between">
                     <Link
@@ -264,7 +264,9 @@ function HeaderSearch() {
                 </Box>
                 <ChevronRightTwoToneIcon />
               </ListItem>
-            </List>
+            </List> */}
+
+            
             <Divider sx={{ mt: 1, mb: 2 }} />
             <Box sx={{ textAlign: 'center' }}>
               <Button color="primary">View all search results</Button>

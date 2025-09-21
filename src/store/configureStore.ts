@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import loginReducer from "../slice/loginSlice";
-import storeReducer from "../slice/FarmerSlice";
+import farmerReducer from "../slice/FarmerSlice";
 const rootReducer = combineReducers({
   login: loginReducer,
-  store: storeReducer,
+  farmer: farmerReducer,
 });
 
 export const store = configureStore({

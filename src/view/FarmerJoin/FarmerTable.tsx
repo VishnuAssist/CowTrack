@@ -13,23 +13,26 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TextField,
-} from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import { useState } from "react";
-import FormStore from "./FormStore";
-import { useDispatch, useSelector } from "react-redux";
-import { Store } from "../../models/Setting";
-import PreviewStore from "./PreviewStore";
-import { removeStore } from "../../slice/FarmerSlice";
-const AddStore = () => {
-  const dispatch = useDispatch();
-  const { storeList } = useSelector((state: any) => state.store);
+  TextField
+} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
+import FarmerForm from './FarmerForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { FarmerAddType } from '../../models/FarmerType';
+import PreviewFarmer from './PreviewFarmer';
+import { removeFarmer } from '../../slice/FarmerSlice';
 
-// this is the form to input the value of user
+import { AnimatePresence, motion } from "framer-motion";
+
+const FarmerTable = () => {
+  const dispatch = useDispatch();
+  const { farmerList } = useSelector((state: any) => state.farmer);
+
+  // this is the form to input the value of user
   const [form, setForm] = useState(false);
   const openForm = () => {
     setForm(true);
@@ -41,8 +44,8 @@ const AddStore = () => {
   // this is the edit function
 
   const [update, setUpdate] = useState(false);
-  const [datatoedit, setDataToEdit] = useState<Store | null>(null);
-  const openUpdate = (data: Store) => {
+  const [datatoedit, setDataToEdit] = useState<FarmerAddType | null>(null);
+  const openUpdate = (data: FarmerAddType) => {
     setDataToEdit(data);
     setUpdate(true);
   };
@@ -50,11 +53,10 @@ const AddStore = () => {
     setUpdate(false);
   };
 
-
   // this is the preview function
   const [preview, setPreview] = useState(false);
-  const [previewdata, setPreviewData] = useState<Store | null>(null);
-  const openPreview = (data: Store) => {
+  const [previewdata, setPreviewData] = useState<FarmerAddType | null>(null);
+  const openPreview = (data: FarmerAddType) => {
     setPreview(true);
     setPreviewData(data);
   };
@@ -62,22 +64,19 @@ const AddStore = () => {
     setPreview(false);
   };
 
-  
-
   // this is the delete function
 
   const [alertdeleteStore, setAlertDeleteStore] = useState(false);
-  const [userToDelete, setUserToDelete] = useState<Store | null>(null);
-  
-  const deleteStore=()=>{
+  const [userToDelete, setUserToDelete] = useState<FarmerAddType | null>(null);
 
-    if (userToDelete){
-      dispatch(removeStore({ id: userToDelete.id }));
+  const deleteStore = () => {
+    if (userToDelete) {
+      dispatch(removeFarmer({ id: userToDelete.id }));
       setAlertDeleteStore(false);
       setUserToDelete(null);
     }
-  }
-  const openDelete = (user:Store) => {
+  };
+  const openDelete = (user: FarmerAddType) => {
     setAlertDeleteStore(true);
     setUserToDelete(user);
   };
@@ -86,15 +85,13 @@ const AddStore = () => {
     setUserToDelete(null);
   };
 
-  
-
   return (
     <>
       <Container maxWidth="lg">
         <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          flexWrap={"wrap"}
+          display={'flex'}
+          justifyContent={'space-between'}
+          flexWrap={'wrap'}
           p={2}
         >
           <TextField label="Search" />
@@ -108,27 +105,35 @@ const AddStore = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: "18px" }}>Code</TableCell>
-              <TableCell sx={{ fontSize: "18px" }}>Country</TableCell>
-              <TableCell sx={{ fontSize: "18px" }}>Status</TableCell>
-              <TableCell sx={{ fontSize: "18px" }}>Action</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>name</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>age</TableCell>
+
+              <TableCell sx={{ fontSize: '18px' }}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {storeList &&
-              storeList.map((storeDetails: Store) => (
-                <TableRow key={storeDetails.id}>
-                  <TableCell>{storeDetails.storecode}</TableCell>
-                  <TableCell>{storeDetails.country}</TableCell>
-                  <TableCell>
-                    <Button variant="contained">{storeDetails.status}</Button>
-                  </TableCell>
+              <AnimatePresence>
+            {farmerList &&
+              farmerList.map((farmerDetails: FarmerAddType) => (
+                // <TableRow key={farmerDetails.id}>
+                <TableRow
+                  key={farmerDetails.id}
+                  component={motion.tr}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <TableCell>{farmerDetails.farmerName}</TableCell>
+                  <TableCell>{farmerDetails.age}</TableCell>
+
                   <TableCell>
                     <IconButton
                       size="small"
                       color="primary"
                       aria-label="VisibilityIcon"
-                      onClick={() => openPreview(storeDetails)}
+                      onClick={() => openPreview(farmerDetails)}
                     >
                       <VisibilityIcon />
                     </IconButton>
@@ -136,7 +141,7 @@ const AddStore = () => {
                       size="small"
                       color="primary"
                       aria-label="edit"
-                      onClick={() => openUpdate(storeDetails)}
+                      onClick={() => openUpdate(farmerDetails)}
                     >
                       <EditIcon />
                     </IconButton>
@@ -144,19 +149,24 @@ const AddStore = () => {
                       color="error"
                       aria-label="delete"
                       // onClick={openDelete}
-                      onClick={()=>openDelete(storeDetails)}
+                      onClick={() => openDelete(farmerDetails)}
                     >
                       <DeleteIcon />
                     </IconButton>
                   </TableCell>
                 </TableRow>
               ))}
+              </AnimatePresence>
           </TableBody>
         </Table>
-        
       </Container>
 
-      <Dialog open={alertdeleteStore} onClose={closeDelete}  maxWidth="xs" fullWidth>
+      <Dialog
+        open={alertdeleteStore}
+        onClose={closeDelete}
+        maxWidth="xs"
+        fullWidth
+      >
         <DialogContent>
           Are you sure you want to delete this store ?
         </DialogContent>
@@ -169,20 +179,20 @@ const AddStore = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      <FormStore form={form} closeForm={closeForm} initialStore={null} />
+      <FarmerForm form={form} closeForm={closeForm} initialFarmer={null} />
 
-      <PreviewStore
+      <PreviewFarmer
         preview={preview}
         closePreview={closePreview}
         PreviewDetails={previewdata}
       />
-      <FormStore
+      <FarmerForm
         form={update}
         closeForm={closeUpadate}
-        initialStore={datatoedit}
+        initialFarmer={datatoedit}
       />
     </>
   );
 };
 
-export default AddStore;
+export default FarmerTable;
