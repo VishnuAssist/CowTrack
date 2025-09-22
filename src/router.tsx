@@ -26,10 +26,15 @@ const Dashboard = Loader(lazy(() => import('src/view/Dashboard')));
 
 // Components
 const MilkDiary = Loader(lazy(() => import('src/view/MilkDiary')));
+const MilkDiarySummery = Loader(lazy(() => import('src/view/MilkDiarySummery')));
 const CowInfo = Loader(lazy(() => import('src/view/CowCare')));
 const ExpenseTracker = Loader(lazy(() => import('src/view/MilkDiary')));
 const CowCare = Loader(lazy(() => import('src/view/CowCare')));
 const FarmerJoin = Loader(lazy(() => import('src/view/FarmerJoin')));
+
+const ContactDetails = Loader(lazy(()=> import('src/view/ContactDetails')));
+
+const VisiterRegistration = Loader(lazy(()=> import('src/view/VisiterRegistration')));
 
 
 
@@ -79,6 +84,10 @@ const routes: RouteObject[] = [
         element: <MilkDiary />
       },
       {
+        path: 'MilkDiarySummery',
+        element: <MilkDiarySummery />
+      },
+      {
         path: 'CowInfo',
         element: <CowInfo />
       },
@@ -93,6 +102,14 @@ const routes: RouteObject[] = [
       {
         path: 'FarmerJoin',
         element: <FarmerJoin />
+      },
+      {
+        path: 'ContactDetails',
+        element: <ContactDetails />
+      },
+      {
+        path: 'VisiterRegistration',
+        element: <VisiterRegistration />
       },
     
     ]

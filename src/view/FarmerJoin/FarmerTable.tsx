@@ -24,13 +24,20 @@ import FarmerForm from './FarmerForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { FarmerAddType } from '../../models/FarmerType';
 import PreviewFarmer from './PreviewFarmer';
-import { removeFarmer } from '../../slice/FarmerSlice';
+import { removeFarmer ,setSearchTerm } from '../../slice/FarmerSlice';
 
 import { AnimatePresence, motion } from "framer-motion";
 
 const FarmerTable = () => {
   const dispatch = useDispatch();
-  const { farmerList } = useSelector((state: any) => state.farmer);
+  // const { farmerList } = useSelector((state: any) => state.farmer);
+
+    const { farmerList, searchTerm } = useSelector((state: any) => state.farmer);
+
+  const filteredFarmers = farmerList.filter((farmer: FarmerAddType) =>
+    farmer.farmerName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
   // this is the form to input the value of user
   const [form, setForm] = useState(false);
@@ -94,7 +101,12 @@ const FarmerTable = () => {
           flexWrap={'wrap'}
           p={2}
         >
-          <TextField label="Search" />
+         <TextField
+          label="Search"
+          value={searchTerm}
+          onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+          size="small"
+        />
 
           <Fab onClick={openForm} size="small" color="primary" aria-label="add">
             <AddIcon />
@@ -113,8 +125,8 @@ const FarmerTable = () => {
           </TableHead>
           <TableBody>
               <AnimatePresence>
-            {farmerList &&
-              farmerList.map((farmerDetails: FarmerAddType) => (
+            {filteredFarmers &&
+              filteredFarmers.map((farmerDetails: FarmerAddType) => (
                 // <TableRow key={farmerDetails.id}>
                 <TableRow
                   key={farmerDetails.id}

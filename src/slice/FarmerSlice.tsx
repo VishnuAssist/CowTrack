@@ -4,6 +4,7 @@ import { FarmerAddType, } from "../models/FarmerType";
 interface FarmerState {
   farmerList: FarmerAddType[];
   selectedFarmer: FarmerAddType | null;
+   searchTerm: string; 
 }
 
 const initialState: FarmerState = {
@@ -16,6 +17,7 @@ const initialState: FarmerState = {
     },
   ],
   selectedFarmer: null,
+  searchTerm:""
 };
 
 const FarmerSlice = createSlice({
@@ -40,6 +42,10 @@ const FarmerSlice = createSlice({
     setSelectedFarmer: (state, action: PayloadAction<FarmerAddType | null>) => {
       state.selectedFarmer = action.payload;
     },
+
+      setSearchTerm: (state, action: PayloadAction<string>) => {
+      state.searchTerm = action.payload;
+    },
   },
 });
 
@@ -47,7 +53,7 @@ export const {
   addFarmer,
   removeFarmer,
   updateFarmer,
-  setSelectedFarmer,
+  setSelectedFarmer,setSearchTerm
 } = FarmerSlice.actions;
 
 export default FarmerSlice.reducer;

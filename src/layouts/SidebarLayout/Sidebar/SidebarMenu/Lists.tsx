@@ -9,6 +9,9 @@ import AgricultureIcon from '@mui/icons-material/Agriculture';
 import InfoIcon from '@mui/icons-material/Info';
 
 import VaccinesIcon from '@mui/icons-material/Vaccines';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import DetailsIcon from '@mui/icons-material/Details';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 export const getMenuItems = (userRoles: string) => {
   switch (userRoles) {
@@ -35,6 +38,12 @@ export const getMenuItems = (userRoles: string) => {
               link: '/components/MilkDiary',
               icon: <PetsIcon />
             },
+
+            {
+              label: 'Milk Diary Summery',
+              link: '/components/MilkDiarySummery',
+              icon: <DetailsIcon />
+            },
             {
               label: 'Cow Info',
               link: '/components/CowInfo',
@@ -56,6 +65,17 @@ export const getMenuItems = (userRoles: string) => {
               link: '/components/FarmerJoin',
               icon: <AgricultureIcon />
             },
+
+            {
+              label: 'Contact Details',
+              link: '/components/ContactDetails',
+              icon: <ContactPhoneIcon />
+            },
+            {
+              label: 'Visiter Registration',
+              link: '/components/VisiterRegistration',
+              icon: <GroupsIcon />
+            }
           ]
         }
       ];
