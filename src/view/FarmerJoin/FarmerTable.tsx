@@ -13,7 +13,9 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TextField
+  TextField,
+  TablePagination,
+  Typography
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -24,20 +26,34 @@ import FarmerForm from './FarmerForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { FarmerAddType } from '../../models/FarmerType';
 import PreviewFarmer from './PreviewFarmer';
-import { removeFarmer ,setSearchTerm } from '../../slice/FarmerSlice';
+import { removeFarmer, setSearchTerm, setCurrentPage, setItemsPerPage } from '../../slice/FarmerSlice';
 
 import { AnimatePresence, motion } from "framer-motion";
 
 const FarmerTable = () => {
   const dispatch = useDispatch();
-  // const { farmerList } = useSelector((state: any) => state.farmer);
+  const { farmerList, searchTerm, roleFilter, currentPage, itemsPerPage } = useSelector((state: any) => state.farmer);
 
-    const { farmerList, searchTerm } = useSelector((state: any) => state.farmer);
+  // Filter farmers based on search term and role filter
+  const filteredFarmers = farmerList.filter((farmer: FarmerAddType) => {
+    const matchesSearch = farmer.farmerName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesRole = roleFilter === 'all' || farmer.role === roleFilter;
+    return matchesSearch && matchesRole;
+  });
 
-  const filteredFarmers = farmerList.filter((farmer: FarmerAddType) =>
-    farmer.farmerName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Pagination calculations
+  const totalItems = filteredFarmers.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedFarmers = filteredFarmers.slice(startIndex, startIndex + itemsPerPage);
 
+  const handleChangePage = (event: unknown, newPage: number) => {
+    dispatch(setCurrentPage(newPage + 1)); // Material-UI uses 0-based index, we use 1-based
+  };
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setItemsPerPage(parseInt(event.target.value, 10)));
+  };
 
   // this is the form to input the value of user
   const [form, setForm] = useState(false);
@@ -49,7 +65,6 @@ const FarmerTable = () => {
   };
 
   // this is the edit function
-
   const [update, setUpdate] = useState(false);
   const [datatoedit, setDataToEdit] = useState<FarmerAddType | null>(null);
   const openUpdate = (data: FarmerAddType) => {
@@ -72,7 +87,6 @@ const FarmerTable = () => {
   };
 
   // this is the delete function
-
   const [alertdeleteStore, setAlertDeleteStore] = useState(false);
   const [userToDelete, setUserToDelete] = useState<FarmerAddType | null>(null);
 
@@ -95,82 +109,87 @@ const FarmerTable = () => {
   return (
     <>
       <Container maxWidth="lg">
-        <Box
-          display={'flex'}
-          justifyContent={'space-between'}
-          flexWrap={'wrap'}
-          p={2}
-        >
-         <TextField
-          label="Search"
-          value={searchTerm}
-          onChange={(e) => dispatch(setSearchTerm(e.target.value))}
-          size="small"
-        />
-
-          <Fab onClick={openForm} size="small" color="primary" aria-label="add">
-            <AddIcon />
-          </Fab>
-        </Box>
-        <Divider />
+        {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6">
+            Showing {paginatedFarmers.length} of {totalItems} farmers
+          </Typography>
+        </Box> */}
 
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: '18px' }}>name</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>age</TableCell>
-
-              <TableCell sx={{ fontSize: '18px' }}>Action</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Name</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Age</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Role</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-              <AnimatePresence>
-            {filteredFarmers &&
-              filteredFarmers.map((farmerDetails: FarmerAddType) => (
-                // <TableRow key={farmerDetails.id}>
-                <TableRow
-                  key={farmerDetails.id}
-                  component={motion.tr}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <TableCell>{farmerDetails.farmerName}</TableCell>
-                  <TableCell>{farmerDetails.age}</TableCell>
-
-                  <TableCell>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      aria-label="VisibilityIcon"
-                      onClick={() => openPreview(farmerDetails)}
-                    >
-                      <VisibilityIcon />
-                    </IconButton>
-                    <IconButton
-                      size="small"
-                      color="primary"
-                      aria-label="edit"
-                      onClick={() => openUpdate(farmerDetails)}
-                    >
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton
-                      color="error"
-                      aria-label="delete"
-                      // onClick={openDelete}
-                      onClick={() => openDelete(farmerDetails)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
+            <AnimatePresence>
+              {paginatedFarmers.length > 0 ? (
+                paginatedFarmers.map((farmerDetails: FarmerAddType) => (
+                  <TableRow
+                    key={farmerDetails.id}
+                    component={motion.tr}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <TableCell>{farmerDetails.farmerName}</TableCell>
+                    <TableCell>{farmerDetails.age}</TableCell>
+                    <TableCell>{farmerDetails.role}</TableCell>
+                    <TableCell>
+                      <IconButton
+                        size="small"
+                        color="primary"
+                        aria-label="View"
+                        onClick={() => openPreview(farmerDetails)}
+                      >
+                        <VisibilityIcon />
+                      </IconButton>
+                      <IconButton
+                        size="small"
+                        color="primary"
+                        aria-label="edit"
+                        onClick={() => openUpdate(farmerDetails)}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                      <IconButton
+                        color="error"
+                        aria-label="delete"
+                        onClick={() => openDelete(farmerDetails)}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={4} align="center" sx={{ py: 3 }}>
+                    <Typography variant="body1" color="textSecondary">
+                      No farmers found matching your criteria.
+                    </Typography>
                   </TableCell>
                 </TableRow>
-              ))}
-              </AnimatePresence>
+              )}
+            </AnimatePresence>
           </TableBody>
         </Table>
+
+        {/* Pagination */}
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={totalItems}
+          rowsPerPage={itemsPerPage}
+          page={currentPage - 1} // Convert to 0-based for Material-UI
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
       </Container>
 
       <Dialog
@@ -180,7 +199,7 @@ const FarmerTable = () => {
         fullWidth
       >
         <DialogContent>
-          Are you sure you want to delete this store ?
+          Are you sure you want to delete this farmer?
         </DialogContent>
         <DialogActions>
           <Button color="primary" onClick={closeDelete}>
@@ -191,8 +210,8 @@ const FarmerTable = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      
       <FarmerForm form={form} closeForm={closeForm} initialFarmer={null} />
-
       <PreviewFarmer
         preview={preview}
         closePreview={closePreview}

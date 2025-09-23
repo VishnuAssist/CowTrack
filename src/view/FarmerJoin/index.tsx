@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import PageHeader from "src/components/PageHeader";
 import PageTitleWrapper from "src/components/PageTitleWrapper";
-import FarmerTable from "./FarmerTable";
+
 import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import FarmerForm from "./FarmerForm";
+import FarmerDetails from "./FarmerDetails";
+import Footer from "src/components/Footer";
 
 const index = () => {
     const theme = useTheme();
@@ -37,10 +39,11 @@ const index = () => {
           spacing={0}
         >
           <Grid size={{xs:12}}>
-             <FarmerTable/>
+             <FarmerDetails/>
         </Grid>
         </Grid>
       </Box>
+      <Footer/>
       <FarmerForm form={form} closeForm={closeForm} initialFarmer={null} />
     </div>
   )

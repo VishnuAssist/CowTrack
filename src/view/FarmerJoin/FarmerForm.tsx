@@ -29,9 +29,10 @@ interface Props {
 const FarmerForm: FC<Props> = ({ form, closeForm, initialFarmer }) => {
   const data: FarmerAddType = {
     farmerName: "",
-    age:0,
-  
+    age: 0,
+
     id: 0,
+    role: "farmer"
   };
 
   const { register, handleSubmit, reset, setValue, watch } = useForm();
@@ -97,7 +98,20 @@ const FarmerForm: FC<Props> = ({ form, closeForm, initialFarmer }) => {
                   fullWidth
                 />
               </Grid>
-             
+            
+<Grid size={{xs:12,md:12}}>
+  <FormControl fullWidth>
+    <InputLabel>Role</InputLabel>
+    <Select
+      label="Role"
+      {...register("role")}
+      defaultValue={initialFarmer?.role || "farmer"}
+    >
+      <MenuItem value="farmer">Farmer</MenuItem>
+      <MenuItem value="common person">Common Person</MenuItem>
+    </Select>
+  </FormControl>
+</Grid>
             </Grid>
 
             <DialogActions>

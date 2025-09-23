@@ -32,7 +32,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             animate={{ width: '100%' }}
             transition={{ duration: 2, ease: 'easeInOut' }}
           >
-            <Typography sx={{ fontSize: '22px', fontWeight: '800' }}>
+            <Typography sx={{ fontSize: '18px', fontWeight: '800' }}>
               FarmFusion – Everything farm-related in one place
             </Typography>
           </motion.h1>
@@ -41,7 +41,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 2, ease: 'easeInOut' }}
           >
-            {title}
+            <Typography sx={{ fontSize: '16px', fontWeight: '800' }}>
+            {title}</Typography>
           </motion.h1>
         </Grid>
         <Grid component={ButtonGroup}>

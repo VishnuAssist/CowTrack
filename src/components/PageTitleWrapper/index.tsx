@@ -14,7 +14,7 @@ const PageTitleWrapper: FC<PageTitleWrapperProps> = ({ children }) => {
     <Box
       className="MuiPageTitle-wrapper"
       sx={{
-        padding: isMobile ? theme.spacing(2) : theme.spacing(4),
+        padding: isMobile ? theme.spacing(2) : theme.spacing(1),
       }}
     >
       <Container maxWidth="lg">{children}</Container>

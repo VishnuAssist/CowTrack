@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ContactDetailsType } from "../models/ContactDetailsType";
+import { ContactDetailsStaticData } from "src/components/SliceStaticData";
 
 interface ContactsState {
   contacts: ContactDetailsType[];
@@ -10,7 +11,7 @@ interface ContactsState {
 }
 
 const initialState: ContactsState = {
-  contacts: [],
+  contacts: ContactDetailsStaticData,
   searchQuery: "",
   roleFilter: null,
   currentPage: 1,

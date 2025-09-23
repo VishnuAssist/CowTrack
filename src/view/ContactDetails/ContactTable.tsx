@@ -3,6 +3,7 @@ import { Edit, Delete } from "@mui/icons-material";
 import { useAppDispatch, useAppSelector } from "src/store/configureStore";
 import { deleteContact } from "../../slice/ContactDeatilsSlice";
 import { selectPaginatedContacts } from "../../selectors/contactsSelectors";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface ContactTableProps {
   onEdit: (contactId: number) => void;
@@ -25,8 +26,16 @@ export default function ContactTable({ onEdit }: ContactTableProps) {
         </TableRow>
       </TableHead>
       <TableBody>
+        <AnimatePresence>
         {contacts.map((c) => (
-          <TableRow key={c.id}>
+          <TableRow
+          component={motion.tr}
+          key={c.id}
+            initial={{opacity:0}}
+          animate={{opacity:1}}
+          exit={{opacity:0}}
+          transition={{duration:2}}
+          >
             <TableCell>{c.name}</TableCell>
             <TableCell>{c.role}</TableCell>
             <TableCell>{c.phoneNumber}</TableCell>
@@ -42,6 +51,7 @@ export default function ContactTable({ onEdit }: ContactTableProps) {
             </TableCell>
           </TableRow>
         ))}
+        </AnimatePresence>
       </TableBody>
     </Table>
   );
