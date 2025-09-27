@@ -26,22 +26,26 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             style={{
               overflow: 'hidden',
               whiteSpace: 'noWrap',
-              color: 'orange'
+              // color: 'white'
             }}
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
             transition={{ duration: 2, ease: 'easeInOut' }}
           >
-            <Typography sx={{ fontSize: '18px', fontWeight: '800' }}>
-              FarmFusion – Everything farm-related in one place
+            <Typography sx={{ fontSize: '22px', fontWeight: '1000' ,fontFamily: "'Jura', sans-serif", }}>
+              {/* FarmFusion – Everything farm-related in one place */}
+              {/* TrackMyFarm */}
+              CattleSync – Everything farm-related in one place 
             </Typography>
+
+            
           </motion.h1>
           <motion.h1
             initial={{ y: 25, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 2, ease: 'easeInOut' }}
           >
-            <Typography sx={{ fontSize: '16px', fontWeight: '800' }}>
+            <Typography sx={{ fontSize: '16px', fontWeight: '800' ,    fontFamily: "'Borel', sans-serif",}}>
             {title}</Typography>
           </motion.h1>
         </Grid>

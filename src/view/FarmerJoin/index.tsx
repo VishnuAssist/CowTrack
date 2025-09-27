@@ -23,7 +23,7 @@ const index = () => {
   return (
     <div>
       <Helmet>
-        <title>Payment</title>
+        <title>Farmer Join</title>
       </Helmet>
          <PageTitleWrapper>
       <PageHeader title ="Farmer" btntitle="Add Farmer" icon={""} onActionClick={openForm}/>

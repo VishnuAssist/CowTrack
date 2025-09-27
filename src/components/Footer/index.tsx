@@ -18,7 +18,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2025 - TrackMyFarm
+            &copy; 2025 - CattleSync
           </Typography>
         </Box>
         <Typography
@@ -29,11 +29,11 @@ function Footer() {
         >
           Crafted by{' '}
           <Link
-            href="https://bloomui.com"
+            href="https://thevishven.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            BloomUI.com
+         thevishven.netlify.app
           </Link>
         </Typography>
       </Box>

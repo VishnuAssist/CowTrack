@@ -1,6 +1,11 @@
-import { useContext } from 'react';
-import Scrollbar from 'src/components/Scrollbar';
-import { SidebarContext } from 'src/contexts/SidebarContext';
+
+
+
+import { useContext } from "react";
+import Scrollbar from "../../../components/Scrollbar";
+// import { SidebarContext } from "../../../contexts/sidebarContext";
+ import { SidebarContext } from 'src/contexts/SidebarContext';
+import { Link } from "react-router-dom";
 
 import {
   Box,
@@ -12,15 +17,15 @@ import {
   Button,
   lighten,
   darken,
-  Tooltip
-} from '@mui/material';
+} from "@mui/material";
 
-import SidebarMenu from './SidebarMenu';
-import Logo from 'src/components/LogoSign';
+import SidebarMenu from "./SidebarMenu";
+import Logo from "../../../components/LogoSign";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 
 function Sidebar({
   expanded,
-  setExpanded
+  setExpanded,
 }: {
   expanded: boolean;
   setExpanded: (e: boolean) => void;
@@ -48,14 +53,14 @@ function Sidebar({
           pb: expanded ? 16 : 14,
           width: expanded ? theme.sidebar.width : 80,
           display: {
-            xs: 'none',
-            lg: 'inline-block'
+            xs: "none",
+            lg: "inline-block",
           },
-          position: 'fixed',
+          position: "fixed",
           left: 0,
           top: 0,
           background:
-            theme.palette.mode === 'dark'
+            theme.palette.mode === "dark"
               ? alpha(
                   lighten(
                     theme.header.background || theme.colors.alpha.black[100],
@@ -65,28 +70,28 @@ function Sidebar({
                 )
               : darken(theme.colors.alpha.black[100], 0.5),
           boxShadow:
-            theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
+            theme.palette.mode === "dark" ? theme.sidebar.boxShadow : "none",
         }}
       >
-        <Scrollbar>
-          <Box mt={3}>
-            <Box
-              mx={2}
-              sx={{
-                width: 52
-              }}
-            >
-              <Logo />
-            </Box>
-          </Box>
-          <Divider
+        <Box width={"100%"} mt={ expanded ? 0 : 1.2} display={"flex"} mx={expanded ? 11 : 1}>
+          <Box
+            pb={expanded ? 1.7 : 0.5}
             sx={{
-              mt: theme.spacing(3),
-              mx: theme.spacing(2),
-              background: theme.colors.alpha.trueWhite[10]
+              width: 10,
             }}
-          />
-         <SidebarMenu
+          >
+            <Logo size={expanded ? 85 : 70} />
+          </Box>
+        </Box>
+        <Divider
+          sx={{
+            mt: theme.spacing(3),
+            mx: theme.spacing(2),
+            background: theme.colors.alpha.trueWhite[10],
+          }}
+        />
+        <Scrollbar>
+          <SidebarMenu
             expanded={expanded}
             expand={handleToggle}
             mobile={false}
@@ -94,16 +99,32 @@ function Sidebar({
         </Scrollbar>
         <Divider
           sx={{
-            background: theme.colors.alpha.trueWhite[10]
+            background: theme.colors.alpha.trueWhite[10],
           }}
         />
-      
+        <Box p={1}>
+          <Link
+            to="https://thevishven.netlify.app/"
+            style={{ textDecoration: "none" }}
+            target="_blank"
+          >
+            <Button
+              variant="contained"
+              color="success"
+              size="small"
+              fullWidth
+              startIcon={<LiveHelpIcon sx={{ ml: 1 }} />}
+            >
+              {expanded && "FAQ"}
+            </Button>
+          </Link>
+        </Box>
       </SidebarWrapper>
       <Drawer
         sx={{
-          boxShadow: `${theme.sidebar.boxShadow}`
+          boxShadow: `${theme.sidebar.boxShadow}`,
         }}
-        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+        anchor={theme.direction === "rtl" ? "right" : "left"}
         open={sidebarToggle}
         onClose={closeSidebar}
         variant="temporary"
@@ -111,33 +132,39 @@ function Sidebar({
       >
         <SidebarWrapper
           sx={{
+            pb: 7.5,
             background:
-              theme.palette.mode === 'dark'
+              theme.palette.mode === "dark"
                 ? theme.colors.alpha.white[100]
                 : darken(theme.colors.alpha.black[100], 0.5),
-                width: theme.sidebar.width,
+            width: theme.sidebar.width,
           }}
         >
           <Scrollbar>
-            <Box mt={3}>
-              <Box
-                mx={2}
-                sx={{
-                  width: 52
-                }}
-              >
-                <Logo />
-              </Box>
-            </Box>
-            <Divider
-              sx={{
-                mt: theme.spacing(3),
-                mx: theme.spacing(2),
-                background: theme.colors.alpha.trueWhite[10]
-              }}
-            />
-             <SidebarMenu expanded={true} expand={handleToggle} mobile={true} />
+            <SidebarMenu expanded={true} expand={handleToggle} mobile={true} />
           </Scrollbar>
+          <Divider
+            sx={{
+              background: theme.colors.alpha.trueWhite[10],
+            }}
+          />
+          <Box p={2}>
+            <Link
+              to="https://thevishven.netlify.app/"
+              style={{ textDecoration: "none" }}
+              target="_blank"
+            >
+              <Button
+                variant="contained"
+                color="success"
+                size="small"
+                fullWidth
+                startIcon={<LiveHelpIcon />}
+              >
+                FAQ
+              </Button>
+            </Link>
+          </Box>
         </SidebarWrapper>
       </Drawer>
     </>
