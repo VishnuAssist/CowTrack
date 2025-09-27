@@ -66,9 +66,7 @@ const FarmerForm: FC<Props> = ({ form, closeForm, initialFarmer }) => {
     closeForm();
   };
 
-  useEffect(() => {
-    reset(initialFarmer || data);
-  }, [initialFarmer, reset]);
+
 
   // useEffect(() => {
   //   if (initialFarmer) {

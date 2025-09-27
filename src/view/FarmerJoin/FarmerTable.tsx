@@ -155,7 +155,7 @@ const FarmerTable = () => {
                       </IconButton>
                       <IconButton
                         size="small"
-                        color="primary"
+                        color="warning"
                         aria-label="edit"
                         onClick={() => openUpdate(farmerDetails)}
                       >

@@ -44,6 +44,11 @@ const contactsSlice = createSlice({
     setCurrentPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
     },
+    setPageSize(state, action: PayloadAction<number>) {
+  state.pageSize = action.payload;
+  state.currentPage = 1;
+},
+
   },
 });
 
@@ -53,7 +58,7 @@ export const {
   deleteContact,
   setSearchQuery,
   setRoleFilter,
-  setCurrentPage,
+  setCurrentPage,setPageSize
 } = contactsSlice.actions;
 
 export default contactsSlice.reducer;
