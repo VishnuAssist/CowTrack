@@ -30,6 +30,7 @@ import {
 import { VisitorRegistrationType } from 'src/models/VisitorRegistrationType';
 import { DailyMilkRecord, MilkDiaryType } from 'src/models/MilkDairyType';
 import { MilkDiarySummaryType } from 'src/models/MilkDiarySummery';
+import Dashboard from './Dashboard';
 
 // Mock data
 const mockFarmerData: FarmerAddType = {
@@ -120,33 +121,31 @@ const mockAnimalData: AnimalDetailsType = {
 // Mock data for Visitor Registration
 const mockVisitorData: VisitorRegistrationType = {
   id: 1,
-  name: "Rajesh Kumar",
-  native: "Chennai, Tamil Nadu",
-  contact: "+91 9876543210",
-  email: "rajesh.kumar@example.com",
-  purpose: "Farm Equipment Purchase",
-  theyProvide: "Agricultural Machinery",
-  theyNeed: "Dairy Farm Consultation",
-  dateTime: "2024-01-20T10:30:00",
-  address: "No. 123, MG Road, Chennai - 600001",
-  companyName: "AgriTech Solutions Pvt Ltd",
-  notes: "Interested in modern dairy farming equipment. Follow up required."
+  name: 'Rajesh Kumar',
+  native: 'Chennai, Tamil Nadu',
+  contact: '+91 9876543210',
+  email: 'rajesh.kumar@example.com',
+  purpose: 'Farm Equipment Purchase',
+  theyProvide: 'Agricultural Machinery',
+  theyNeed: 'Dairy Farm Consultation',
+  dateTime: '2024-01-20T10:30:00',
+  address: 'No. 123, MG Road, Chennai - 600001',
+  companyName: 'AgriTech Solutions Pvt Ltd',
+  notes: 'Interested in modern dairy farming equipment. Follow up required.'
 };
-
-
 
 // Mock data for Milk Diary
 const mockMilkDiaryData: MilkDiaryType = {
   id: 1,
-  milkCenterName: "Green Valley Dairy",
-  milkCenterOwner: "Mr. Sharma",
-  milkCenterContact: "+91 9876543210",
-  dueTimeMorning: "06:00",
-  dueTimeEvening: "18:00",
-  month: "January 2024",
+  milkCenterName: 'Green Valley Dairy',
+  milkCenterOwner: 'Mr. Sharma',
+  milkCenterContact: '+91 9876543210',
+  dueTimeMorning: '06:00',
+  dueTimeEvening: '18:00',
+  month: 'January 2024',
   totalAmount: 45250,
   totalLitres: 905,
-  notes: "Regular supply maintained throughout the month",
+  notes: 'Regular supply maintained throughout the month',
   days: [
     { day: 1, morningLitres: 15, eveningLitres: 16, amount: 1550 },
     { day: 2, morningLitres: 14, eveningLitres: 15, amount: 1450 },
@@ -159,19 +158,18 @@ const mockMilkDiaryData: MilkDiaryType = {
 // Mock data for Milk Diary Summary
 const mockMilkSummaryData: MilkDiarySummaryType = {
   id: 1,
-  milkCenterName: "Green Valley Dairy",
-  milkCenterOwner: "Mr. Sharma",
-  milkCenterContact: "+91 9876543210",
-  invoiceDate: "2024-01-31",
+  milkCenterName: 'Green Valley Dairy',
+  milkCenterOwner: 'Mr. Sharma',
+  milkCenterContact: '+91 9876543210',
+  invoiceDate: '2024-01-31',
   totalAmount: 45250,
   totalLitres: 905,
   amountWithdrawn: true,
-  purpose: "Monthly milk supply payment",
+  purpose: 'Monthly milk supply payment',
   feedsProvided: true,
-  downloadLink: "/invoices/milk-january-2024.pdf",
-  notes: "Payment processed successfully. Feeds provided as agreed."
+  downloadLink: '/invoices/milk-january-2024.pdf',
+  notes: 'Payment processed successfully. Feeds provided as agreed.'
 };
-
 
 // Field Card Component
 const FieldCard = ({
@@ -906,10 +904,12 @@ const AnimalDetailDetailsAccordion = ({
   );
 };
 
-
-
 // Visitor Registration Details Component
-const VisitorRegistrationDetailsAccordion = ({ data }: { data: VisitorRegistrationType }) => {
+const VisitorRegistrationDetailsAccordion = ({
+  data
+}: {
+  data: VisitorRegistrationType;
+}) => {
   const [expanded, setExpanded] = useState(false);
 
   const formatDateTime = (dateTimeString: string) => {
@@ -927,13 +927,16 @@ const VisitorRegistrationDetailsAccordion = ({ data }: { data: VisitorRegistrati
   return (
     <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Typography
+          variant="h6"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+        >
           Visitor Registration Details
-          <Chip 
-            label="Visitor" 
-            size="small" 
-            color="primary" 
-            variant="outlined" 
+          <Chip
+            label="Visitor"
+            size="small"
+            color="primary"
+            variant="outlined"
           />
         </Typography>
       </AccordionSummary>
@@ -944,7 +947,11 @@ const VisitorRegistrationDetailsAccordion = ({ data }: { data: VisitorRegistrati
             <FieldCard label="Name" value={data.name} borderColor="#4caf50" />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Contact" value={data.contact} borderColor="#4caf50" />
+            <FieldCard
+              label="Contact"
+              value={data.contact}
+              borderColor="#4caf50"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <FieldCard label="Email" value={data.email} borderColor="#4caf50" />
@@ -952,33 +959,61 @@ const VisitorRegistrationDetailsAccordion = ({ data }: { data: VisitorRegistrati
 
           {/* Address Details */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Native Place" value={data.native} borderColor="#2196f3" />
+            <FieldCard
+              label="Native Place"
+              value={data.native}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Address" value={data.address} borderColor="#2196f3" />
+            <FieldCard
+              label="Address"
+              value={data.address}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Company Name" value={data.companyName} borderColor="#2196f3" />
+            <FieldCard
+              label="Company Name"
+              value={data.companyName}
+              borderColor="#2196f3"
+            />
           </Grid>
 
           {/* Visit Details */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Visit Date & Time" value={formatDateTime(data.dateTime)} borderColor="#ff9800" />
+            <FieldCard
+              label="Visit Date & Time"
+              value={formatDateTime(data.dateTime)}
+              borderColor="#ff9800"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Purpose" value={data.purpose} borderColor="#ff9800" />
+            <FieldCard
+              label="Purpose"
+              value={data.purpose}
+              borderColor="#ff9800"
+            />
           </Grid>
 
           {/* Business Exchange */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="They Provide" value={data.theyProvide} borderColor="#9c27b0" />
+            <FieldCard
+              label="They Provide"
+              value={data.theyProvide}
+              borderColor="#9c27b0"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="They Need" value={data.theyNeed} borderColor="#9c27b0" />
+            <FieldCard
+              label="They Need"
+              value={data.theyNeed}
+              borderColor="#9c27b0"
+            />
           </Grid>
 
           {/* Notes */}
-          <Grid size={{xs:12}}>
+          <Grid size={{ xs: 12 }}>
             <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
           </Grid>
         </Grid>
@@ -986,8 +1021,6 @@ const VisitorRegistrationDetailsAccordion = ({ data }: { data: VisitorRegistrati
     </Accordion>
   );
 };
-
-
 
 // Milk Diary Details Component
 const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
@@ -1008,13 +1041,16 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
   return (
     <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Typography
+          variant="h6"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+        >
           Milk Diary - {data.month}
-          <Chip 
-            label="Daily Records" 
-            size="small" 
-            color="primary" 
-            variant="outlined" 
+          <Chip
+            label="Daily Records"
+            size="small"
+            color="primary"
+            variant="outlined"
           />
         </Typography>
       </AccordionSummary>
@@ -1022,21 +1058,41 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
         <Grid container spacing={2}>
           {/* Milk Center Information */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Milk Center Name" value={data.milkCenterName} borderColor="#4caf50" />
+            <FieldCard
+              label="Milk Center Name"
+              value={data.milkCenterName}
+              borderColor="#4caf50"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Milk Center Owner" value={data.milkCenterOwner} borderColor="#4caf50" />
+            <FieldCard
+              label="Milk Center Owner"
+              value={data.milkCenterOwner}
+              borderColor="#4caf50"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Contact" value={data.milkCenterContact} borderColor="#4caf50" />
+            <FieldCard
+              label="Contact"
+              value={data.milkCenterContact}
+              borderColor="#4caf50"
+            />
           </Grid>
 
           {/* Timing Information */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Morning Due Time" value={data.dueTimeMorning} borderColor="#2196f3" />
+            <FieldCard
+              label="Morning Due Time"
+              value={data.dueTimeMorning}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Evening Due Time" value={data.dueTimeEvening} borderColor="#2196f3" />
+            <FieldCard
+              label="Evening Due Time"
+              value={data.dueTimeEvening}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <FieldCard label="Month" value={data.month} borderColor="#2196f3" />
@@ -1044,14 +1100,22 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
 
           {/* Summary Information */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Total Litres" value={formatLitres(data.totalLitres)} borderColor="#ff9800" />
+            <FieldCard
+              label="Total Litres"
+              value={formatLitres(data.totalLitres)}
+              borderColor="#ff9800"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Total Amount" value={formatPrice(data.totalAmount)} borderColor="#ff9800" />
+            <FieldCard
+              label="Total Amount"
+              value={formatPrice(data.totalAmount)}
+              borderColor="#ff9800"
+            />
           </Grid>
 
           {/* Daily Records */}
-          <Grid size={{xs:12}}>
+          <Grid size={{ xs: 12 }}>
             <Card sx={{ borderLeft: '4px solid #9c27b7', mb: 2 }}>
               <CardContent>
                 <Typography variant="subtitle1" gutterBottom fontWeight="bold">
@@ -1059,9 +1123,16 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
                 </Typography>
                 <Grid container spacing={1}>
                   {data.days.map((dayRecord) => (
-                    <Grid size={{xs:12,sm:6,md:4,lg:3}} key={dayRecord.day}>
+                    <Grid
+                      size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                      key={dayRecord.day}
+                    >
                       <Card variant="outlined" sx={{ p: 1 }}>
-                        <Typography variant="subtitle2" color="primary" gutterBottom>
+                        <Typography
+                          variant="subtitle2"
+                          color="primary"
+                          gutterBottom
+                        >
                           Day {dayRecord.day}
                         </Typography>
                         <Typography variant="body2">
@@ -1085,7 +1156,7 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
           </Grid>
 
           {/* Notes */}
-          <Grid size={{xs:12}}>
+          <Grid size={{ xs: 12 }}>
             <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
           </Grid>
         </Grid>
@@ -1095,7 +1166,11 @@ const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
 };
 
 // Milk Diary Summary Details Component
-const MilkDiarySummaryDetailsAccordion = ({ data }: { data: MilkDiarySummaryType }) => {
+const MilkDiarySummaryDetailsAccordion = ({
+  data
+}: {
+  data: MilkDiarySummaryType;
+}) => {
   const [expanded, setExpanded] = useState(false);
 
   const formatPrice = (amount: number) => {
@@ -1111,19 +1186,22 @@ const MilkDiarySummaryDetailsAccordion = ({ data }: { data: MilkDiarySummaryType
   };
 
   const formatBoolean = (value?: boolean) => {
-    return value ? "Yes" : "No";
+    return value ? 'Yes' : 'No';
   };
 
   return (
     <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Typography
+          variant="h6"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+        >
           Milk Diary Summary
-          <Chip 
-            label={data.amountWithdrawn ? "Paid" : "Pending"} 
-            size="small" 
-            color={data.amountWithdrawn ? "success" : "warning"} 
-            variant="outlined" 
+          <Chip
+            label={data.amountWithdrawn ? 'Paid' : 'Pending'}
+            size="small"
+            color={data.amountWithdrawn ? 'success' : 'warning'}
+            variant="outlined"
           />
         </Typography>
       </AccordionSummary>
@@ -1131,51 +1209,91 @@ const MilkDiarySummaryDetailsAccordion = ({ data }: { data: MilkDiarySummaryType
         <Grid container spacing={2}>
           {/* Milk Center Information */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Milk Center Name" value={data.milkCenterName} borderColor="#4caf50" />
+            <FieldCard
+              label="Milk Center Name"
+              value={data.milkCenterName}
+              borderColor="#4caf50"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Milk Center Owner" value={data.milkCenterOwner} borderColor="#4caf50" />
+            <FieldCard
+              label="Milk Center Owner"
+              value={data.milkCenterOwner}
+              borderColor="#4caf50"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Contact" value={data.milkCenterContact} borderColor="#4caf50" />
+            <FieldCard
+              label="Contact"
+              value={data.milkCenterContact}
+              borderColor="#4caf50"
+            />
           </Grid>
 
           {/* Invoice Details */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Invoice Date" value={formatDate(data.invoiceDate)} borderColor="#2196f3" />
+            <FieldCard
+              label="Invoice Date"
+              value={formatDate(data.invoiceDate)}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Total Litres" value={`${data.totalLitres} litres`} borderColor="#2196f3" />
+            <FieldCard
+              label="Total Litres"
+              value={`${data.totalLitres} litres`}
+              borderColor="#2196f3"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Total Amount" value={formatPrice(data.totalAmount)} borderColor="#2196f3" />
+            <FieldCard
+              label="Total Amount"
+              value={formatPrice(data.totalAmount)}
+              borderColor="#2196f3"
+            />
           </Grid>
 
           {/* Payment Status */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Amount Withdrawn" value={formatBoolean(data.amountWithdrawn)} borderColor="#ff9800" />
+            <FieldCard
+              label="Amount Withdrawn"
+              value={formatBoolean(data.amountWithdrawn)}
+              borderColor="#ff9800"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Feeds Provided" value={formatBoolean(data.feedsProvided)} borderColor="#ff9800" />
+            <FieldCard
+              label="Feeds Provided"
+              value={formatBoolean(data.feedsProvided)}
+              borderColor="#ff9800"
+            />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Purpose" value={data.purpose} borderColor="#ff9800" />
+            <FieldCard
+              label="Purpose"
+              value={data.purpose}
+              borderColor="#ff9800"
+            />
           </Grid>
 
           {/* Download Link */}
           {data.downloadLink && (
-            <Grid size={{xs:12}}>
+            <Grid size={{ xs: 12 }}>
               <Card sx={{ borderLeft: '4px solid #9c27b0', mb: 1 }}>
                 <CardContent>
-                  <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                  <Typography
+                    variant="subtitle2"
+                    color="text.secondary"
+                    gutterBottom
+                  >
                     Download Invoice
                   </Typography>
-                  <Typography 
-                    variant="body2" 
-                    component="a" 
+                  <Typography
+                    variant="body2"
+                    component="a"
                     href={data.downloadLink}
-                    sx={{ 
-                      color: 'primary.main', 
+                    sx={{
+                      color: 'primary.main',
                       textDecoration: 'underline',
                       cursor: 'pointer'
                     }}
@@ -1188,7 +1306,7 @@ const MilkDiarySummaryDetailsAccordion = ({ data }: { data: MilkDiarySummaryType
           )}
 
           {/* Notes */}
-          <Grid size={{xs:12}}>
+          <Grid size={{ xs: 12 }}>
             <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
           </Grid>
         </Grid>
@@ -1221,8 +1339,13 @@ const FormDetailsPanelPage = () => {
           spacing={3}
         >
           <Grid size={{ xs: 12 }}>
+            <Card sx={{ mb: 3 }}>
+              <CardContent>
+                <Dashboard />
+              </CardContent>
+            </Card>
 
- {/* Milk Diary Summary Component */}
+            {/* Milk Diary Summary Component */}
             <Card sx={{ mb: 3 }}>
               <CardContent>
                 <MilkDiarySummaryDetailsAccordion data={mockMilkSummaryData} />
@@ -1235,7 +1358,7 @@ const FormDetailsPanelPage = () => {
                 <MilkDiaryDetailsAccordion data={mockMilkDiaryData} />
               </CardContent>
             </Card>
-            
+
             {/* Animal Detail Component */}
             <Card sx={{ mb: 3 }}>
               <CardContent>
@@ -1268,13 +1391,12 @@ const FormDetailsPanelPage = () => {
               </CardContent>
             </Card>
 
-                {/* Visitor Registration Component */}
+            {/* Visitor Registration Component */}
             <Card sx={{ mb: 3 }}>
               <CardContent>
                 <VisitorRegistrationDetailsAccordion data={mockVisitorData} />
               </CardContent>
             </Card>
-
           </Grid>
         </Grid>
       </Box>
