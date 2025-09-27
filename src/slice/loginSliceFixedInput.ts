@@ -2,16 +2,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface LoginState {
   username: string;
+  password: string;
   isAuthenticated: boolean;
   error: string | null;
-  role: string | null;
+  role:string;
 }
 
 const initialState: LoginState = {
   username: "",
+  password: "",
   isAuthenticated: false,
   error: null,
-  role: null,
+  role:"Admin"
 };
 
 export const loginSlice = createSlice({
@@ -20,27 +22,30 @@ export const loginSlice = createSlice({
   reducers: {
     setCredentials: (
       state,
-      action: PayloadAction<{ username: string; role: string }>
+      action: PayloadAction<{ username: string; password: string }>
     ) => {
       state.username = action.payload.username;
-      state.role = action.payload.role;
-      state.isAuthenticated = true;
-      state.error = null;
-    },
-    loginFailed: (state, action: PayloadAction<string>) => {
-      state.username = "";
-      state.role = null;
-      state.isAuthenticated = false;
-      state.error = action.payload;
+      state.password = action.payload.password;
+
+      if (
+        action.payload.username === "vishnu" &&
+        action.payload.password === "vishnu@123"
+      ) {
+        state.isAuthenticated = true;
+        state.error = null;
+      } else {
+        state.isAuthenticated = false;
+        state.error = "Invalid username or password";
+      }
     },
     logout: (state) => {
       state.username = "";
-      state.role = null;
+      state.password = "";
       state.isAuthenticated = false;
       state.error = null;
     },
   },
 });
 
-export const { setCredentials, loginFailed, logout } = loginSlice.actions;
+export const { setCredentials, logout } = loginSlice.actions;
 export default loginSlice.reducer;

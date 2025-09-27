@@ -12,42 +12,42 @@ interface FarmerState {
 
 const initialState: FarmerState = {
   farmerList: [
-    {
-      id: 1,
-      farmerName: 'vishnu',
-      age: 24,
-      role: 'farmer'
-    },
-    {
-      id: 2,
-      farmerName: "Arun",
-      age: 30,
-      role: "common person",
-    },
-    {
-      id: 3,
-      farmerName: "Priya",
-      age: 27,
-      role: "farmer",
-    },
-    {
-      id: 4,
-      farmerName: "Suresh",
-      age: 35,
-      role: "common person",
-    },
-    {
-      id: 5,
-      farmerName: "Meena",
-      age: 22,
-      role: "farmer",
-    },
-    {
-      id: 6,
-      farmerName: "Rahul",
-      age: 28,
-      role: "common person",
-    },
+  {
+    id: 1,
+    age: 28,
+    role: "Admin",
+    userName: "vishnu",
+    password: "vishnu@123",
+    firstName: "Vishnu",
+    lastName: "Kumar",
+    email: "vishnu@example.com",
+    dob: "1995-05-12",
+    phoneNumber: "9876543210",
+    village: "GreenVillage",
+    taluk: "Taluk1",
+    district: "DistrictA",
+    pincode: 600001,
+    experienceYears: 5,
+    farmEquipmentOwned:"tractor"
+  },
+  {
+    id: 2,
+    age: 32,
+    role: "common person",
+    userName: "arun_cp",
+    password: "pass456",
+    firstName: "Arun",
+    lastName: "Singh",
+    email: "arun@example.com",
+    dob: "1991-08-20",
+    phoneNumber: "9123456780",
+    village: "BlueVillage",
+    taluk: "Taluk2",
+    district: "DistrictB",
+    pincode: 600002,
+    experienceYears: 8,
+    farmEquipmentOwned:"cross cutter"
+  },
   ],
   selectedFarmer: null,
   searchTerm: '',

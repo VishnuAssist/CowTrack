@@ -36,7 +36,7 @@ const FarmerTable = () => {
 
   // Filter farmers based on search term and role filter
   const filteredFarmers = farmerList.filter((farmer: FarmerAddType) => {
-    const matchesSearch = farmer.farmerName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = farmer.userName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesRole = roleFilter === 'all' || farmer.role === roleFilter;
     return matchesSearch && matchesRole;
   });
@@ -119,8 +119,10 @@ const FarmerTable = () => {
           <TableHead>
             <TableRow>
               <TableCell sx={{ fontSize: '18px' }}>Name</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>Age</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>Role</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Email</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>Village</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>District</TableCell>
+              <TableCell sx={{ fontSize: '18px' }}>role</TableCell>
               <TableCell sx={{ fontSize: '18px' }}>Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -137,8 +139,10 @@ const FarmerTable = () => {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <TableCell>{farmerDetails.farmerName}</TableCell>
-                    <TableCell>{farmerDetails.age}</TableCell>
+                    <TableCell>{farmerDetails.firstName}</TableCell>
+                    <TableCell>{farmerDetails.email}</TableCell>
+                    <TableCell>{farmerDetails.village}</TableCell>
+                    <TableCell>{farmerDetails.district}</TableCell>
                     <TableCell>{farmerDetails.role}</TableCell>
                     <TableCell>
                       <IconButton

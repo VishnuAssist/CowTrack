@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Paper, TextField, Typography, Alert } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
-import { setCredentials, loginFailed, logout } from "../../slice/loginSlice";
+import { setCredentials, logout } from "../../slice/loginSliceFixedInput";
 import { useNavigate } from "react-router";
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { isAuthenticated, error } = useAppSelector((state) => state.login);
-  const { farmerList } = useAppSelector((state) => state.farmer); // ✅ access farmers
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    const farmer = farmerList.find(
-      (f) => f.userName === username && f.password === password
-    );
-
-    if (farmer) {
-      dispatch(setCredentials({ username: farmer.userName, role: farmer.role }));
-    } else {
-      dispatch(loginFailed("Invalid username or password"));
-    }
+    dispatch(setCredentials({ username, password }));
   };
 
   useEffect(() => {
@@ -42,7 +33,7 @@ const LoginPage: React.FC = () => {
       alignItems="center"
       minHeight="100vh"
       sx={{
-        backgroundImage: `url("/image/cow.jpg")`,
+        backgroundImage: `url("/image/cow.jpg")`, // your cow image path
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -55,11 +46,13 @@ const LoginPage: React.FC = () => {
             p: 4,
             borderRadius: 3,
             width: 350,
-            bgcolor: "rgba(255, 255, 255, 0.1)",
-            backdropFilter: "blur(6px)",
-            boxShadow: "0px 4px 20px rgba(0,0,0,0.3)",
+            bgcolor: "rgba(255, 255, 255, 0.1)", // makes card semi-transparent
+            backdropFilter: "blur(-10px)", // adds slight blur for better readability
+            boxShadow: "0px 4px 20px rgba(0,0,0,0.3)", // keeps card visible
           }}
         >
+        
+
           <TextField
             fullWidth
             label="Username"
@@ -109,7 +102,7 @@ const LoginPage: React.FC = () => {
           }}
         >
           <Typography variant="h6" fontWeight="bold" mb={2}>
-            Welcome, {username}!
+            Welcome, Vishnu!
           </Typography>
           <Button
             fullWidth
