@@ -108,7 +108,7 @@ const FarmerTable = () => {
 
   return (
     <>
-      <Container maxWidth="lg">
+
         {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography variant="h6">
             Showing {paginatedFarmers.length} of {totalItems} farmers
@@ -118,12 +118,12 @@ const FarmerTable = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontSize: '18px' }}>Name</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>Email</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>Village</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>District</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>role</TableCell>
-              <TableCell sx={{ fontSize: '18px' }}>Actions</TableCell>
+              <TableCell >Name</TableCell>
+              <TableCell >Email</TableCell>
+              <TableCell >Village</TableCell>
+              <TableCell >District</TableCell>
+              <TableCell >role</TableCell>
+              <TableCell >Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -194,7 +194,7 @@ const FarmerTable = () => {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
-      </Container>
+      
 
       <Dialog
         open={alertdeleteStore}

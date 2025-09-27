@@ -33,9 +33,9 @@ const initialState: FarmerState = {
   {
     id: 2,
     age: 32,
-    role: "common person",
-    userName: "arun_cp",
-    password: "pass456",
+    role: "farmer",
+    userName: "sriram",
+    password: "sriram",
     firstName: "Arun",
     lastName: "Singh",
     email: "arun@example.com",
