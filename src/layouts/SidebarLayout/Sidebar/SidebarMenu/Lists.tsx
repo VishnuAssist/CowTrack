@@ -3,7 +3,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import DescriptionIcon from '@mui/icons-material/Description';
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
+import DynamicFormIcon from '@mui/icons-material/DynamicForm';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import PetsIcon from '@mui/icons-material/Pets';
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import InfoIcon from '@mui/icons-material/Info';
@@ -45,8 +46,8 @@ export const getMenuItems = (userRoles: string) => {
               icon: <DetailsIcon />
             },
             {
-              label: 'Cow Info',
-              link: '/components/CowInfo',
+              label: 'Animal Info',
+              link: '/components/AnimalInfo',
               icon: <InfoIcon />
             },
 
@@ -56,8 +57,8 @@ export const getMenuItems = (userRoles: string) => {
               icon: <RequestPageIcon />
             },
             {
-              label: 'Cow Care',
-              link: '/components/CowCare',
+              label: 'Animal Care',
+              link: '/components/AnimalCare',
               icon: <VaccinesIcon />
             },
             {
@@ -77,7 +78,19 @@ export const getMenuItems = (userRoles: string) => {
               icon: <GroupsIcon />
             }
           ]
-        }
+        },
+
+          {
+          title: 'Form Details Panel ',
+          icon: <DisplaySettingsIcon color="primary" />,
+          items: [
+            {
+              label: 'FormDetailsPanel',
+              link: '/details/FormDetailsPanel',
+              icon: <DynamicFormIcon />
+            }
+          ]
+        },
       ];
     case 'farmer':
       return [
@@ -109,7 +122,7 @@ export const getMenuItems = (userRoles: string) => {
             },
             {
               label: 'Cow Info',
-              link: '/components/CowInfo',
+              link: '/components/AnimalInfo',
               icon: <InfoIcon />
             },
 
@@ -120,7 +133,7 @@ export const getMenuItems = (userRoles: string) => {
             },
             {
               label: 'Cow Care',
-              link: '/components/CowCare',
+              link: '/components/AnimalCare',
               icon: <VaccinesIcon />
             },
           

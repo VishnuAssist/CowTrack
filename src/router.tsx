@@ -27,15 +27,15 @@ const Dashboard = Loader(lazy(() => import('src/view/Dashboard')));
 // Components
 const MilkDiary = Loader(lazy(() => import('src/view/MilkDiary')));
 const MilkDiarySummery = Loader(lazy(() => import('src/view/MilkDiarySummery')));
-const CowInfo = Loader(lazy(() => import('src/view/CowCare')));
+const AnimalInfo = Loader(lazy(() => import('src/view/AnimalInfo')));
 const ExpenseTracker = Loader(lazy(() => import('src/view/MilkDiary')));
-const CowCare = Loader(lazy(() => import('src/view/CowCare')));
+const AnimalCare = Loader(lazy(() => import('src/view/AnimalCare')));
 const FarmerJoin = Loader(lazy(() => import('src/view/FarmerJoin')));
 
 const ContactDetails = Loader(lazy(()=> import('src/view/ContactDetails')));
 
 const VisiterRegistration = Loader(lazy(()=> import('src/view/VisiterRegistration')));
-
+const FormDetailsPanel = Loader(lazy(()=> import('src/view/FormDetailsPanel')))
 
 
 const routes: RouteObject[] = [
@@ -74,6 +74,22 @@ const routes: RouteObject[] = [
       },
     ]
   },
+  {
+    path: '/details',
+    element: <SidebarLayout />,
+    children: [
+      {
+        path: '',
+        element: <Navigate to="FormDetailsPanel" replace />
+      },
+   
+    
+      {
+        path: 'FormDetailsPanel',
+        element: <FormDetailsPanel />
+      },
+    ]
+  },
  
   {
     path: '/components',
@@ -92,16 +108,16 @@ const routes: RouteObject[] = [
         element: <MilkDiarySummery />
       },
       {
-        path: 'CowInfo',
-        element: <CowInfo />
+        path: 'AnimalInfo',
+        element: <AnimalInfo />
       },
       {
         path: 'ExpenseTracker',
         element: <ExpenseTracker />
       },
       {
-        path: 'CowCare',
-        element: <CowCare />
+        path: 'AnimalCare',
+        element: <AnimalCare />
       },
       {
         path: 'FarmerJoin',
