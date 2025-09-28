@@ -20,7 +20,7 @@ import Footer from 'src/components/Footer';
 import { AnimalType, AnimalCareType } from 'src/models/AnimalCareType';
 import { FarmerAddType } from 'src/models/FarmerType';
 import { ContactDetailsType, RoleType } from 'src/models/ContactDetailsType';
-import { ExpenseCategory, FarmExpenseType } from 'src/models/ExpenseTracker';
+import { ExpenseCategory, FarmExpenseType } from 'src/models/ExpenseTrackerType';
 import {
   AnimalDetailsType,
   Gender,

@@ -1,16 +1,16 @@
 export type ExpenseCategory = "feed" | "medicine" | "rope" | "equipment" | "misc";
-
+export type paymentType = "cash" | "card" | "upi" | "other";
 export interface FarmExpenseType {
   id: number;
   amount: number;
-  date: string; // ISO string
+  date: string; 
   place: string;
   category: ExpenseCategory;
   notes?: string;
 
-  // optional fields
+  
   paidBy?: string;
   receiptNumber?: string;
-  paymentMethod?: "cash" | "card" | "upi" | "other";
+  paymentMethod?: paymentType;
   supplierName?: string;
 }

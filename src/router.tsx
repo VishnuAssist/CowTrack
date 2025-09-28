@@ -28,7 +28,7 @@ const Dashboard = Loader(lazy(() => import('src/view/Dashboard')));
 const MilkDiary = Loader(lazy(() => import('src/view/MilkDiary')));
 const MilkDiarySummery = Loader(lazy(() => import('src/view/MilkDiarySummery')));
 const AnimalInfo = Loader(lazy(() => import('src/view/AnimalInfo')));
-const ExpenseTracker = Loader(lazy(() => import('src/view/MilkDiary')));
+const ExpenseTracker = Loader(lazy(() => import('src/view/ExpenseTracker')));
 const AnimalCare = Loader(lazy(() => import('src/view/AnimalCare')));
 const FarmerJoin = Loader(lazy(() => import('src/view/FarmerJoin')));
 

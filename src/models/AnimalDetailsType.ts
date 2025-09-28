@@ -17,7 +17,7 @@ export interface AnimalDetailsType {
   lastBirthCount?: number;
   monthsToNextBirth?: number;
 
-  // optional fields
+  
   breed?: string;
   weight?: number; // in kg
   healthStatus?: HealthStatus;
