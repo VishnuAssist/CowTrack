@@ -1,4 +1,4 @@
-export type AnimalType = "cow" | "goat";
+export type AnimalType = 'cow' | 'goat';
 
 export interface AnimalCareType {
   id: number;
@@ -9,10 +9,9 @@ export interface AnimalCareType {
   buyingPrice: number;
   buyingPlace: string;
   buyingContact?: string;
-  
+
   notes?: string;
-date:string;
+  date: string;
 
   medicineType?: string; // tablet, injection, syrup etc.
-  
 }

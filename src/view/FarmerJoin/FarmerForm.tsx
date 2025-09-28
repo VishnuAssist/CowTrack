@@ -68,15 +68,6 @@ const FarmerForm: FC<Props> = ({ form, closeForm, initialFarmer }) => {
 
 
 
-  // useEffect(() => {
-  //   if (initialFarmer) {
-  //     setValue('age', initialFarmer.age);
-  //     setValue('district', initialFarmer.district);
-
-  //     setValue('id', initialFarmer.id);
-  //   }
-  // }, [initialFarmer, setValue]);
-
   useEffect(() => {
     reset(initialFarmer || data);
   }, [initialFarmer, reset]);
