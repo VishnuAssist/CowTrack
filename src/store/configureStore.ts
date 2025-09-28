@@ -7,6 +7,7 @@ import visitorReducer from "../slice/VisitorSlice";
 import animalReducer from "../slice/AnimalCareSlice";
 import expenseTrackerReducer from "../slice/ExpenseTrackerSlice";
 import animalDetailReducer from "../slice/AnimalDetailsSlice";
+import milkDiaryReducer from "../slice/MilkDiarySlice";
 
 const rootReducer = combineReducers({
   login: loginReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   animalCare:animalReducer,
   expenseTracker:expenseTrackerReducer,
   animal:animalDetailReducer,
+      milkDiary: milkDiaryReducer,
 });
 
 export const store = configureStore({
