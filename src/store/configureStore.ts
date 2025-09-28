@@ -3,11 +3,13 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import loginReducer from "../slice/loginSlice";
 import farmerReducer from "../slice/FarmerSlice";
 import contactReducer from "../slice/ContactDeatilsSlice";
+import visitorReducer from "../slice/VisitorSlice";
 
 const rootReducer = combineReducers({
   login: loginReducer,
   farmer: farmerReducer,
   contacts:contactReducer,
+  visitor :visitorReducer,
 });
 
 export const store = configureStore({
