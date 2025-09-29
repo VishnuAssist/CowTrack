@@ -13,12 +13,16 @@ export interface MilkDiaryType {
   milkCenterName: string;
   milkCenterOwner: string;
   milkCenterContact: string;
-  dueTimeMorning: string; // e.g., "06:00"
-  dueTimeEvening: string; // e.g., "18:00"
-  month: string; // e.g., "August 2025"
+  dueTimeMorning: string;
+  dueTimeEvening: string;
+  month: string;
   perLitreRate: number;
   firstHalf: DailyMilkRecord[];
   secondHalf: DailyMilkRecord[];
+  firstHalfTotalLitres: number;
+  firstHalfTotalAmount: number;
+  secondHalfTotalLitres: number;
+  secondHalfTotalAmount: number;
   totalLitres: number;
   totalAmount: number;
   notes?: string;

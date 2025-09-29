@@ -22,6 +22,7 @@ import {
 // import { RootState } from "../store/store";
 import { DailyMilkRecord } from "../../models/MilkDairyType";
 import { RootState } from "src/store/configureStore";
+import { addSummaryFromDiary } from "src/slice/MilkDiarySummerySlice";
 
 const generateDays = (start: number, end: number): DailyMilkRecord[] =>
   Array.from({ length: end - start + 1 }, (_, i) => ({
@@ -51,6 +52,10 @@ const MilkDiary: React.FC = () => {
           perLitreRate: 30,
           firstHalf: generateDays(1, 15),
           secondHalf: generateDays(16, 30),
+          firstHalfTotalLitres: 0,
+          firstHalfTotalAmount: 0,
+          secondHalfTotalLitres: 0,
+          secondHalfTotalAmount: 0
         })
       );
     }
@@ -58,7 +63,19 @@ const MilkDiary: React.FC = () => {
 
   if (!diary) return null;
 
-  const renderTable = (half: "firstHalf" | "secondHalf") => (
+ const renderTable = (half: "firstHalf" | "secondHalf") => {
+  const halfTotals =
+    half === "firstHalf"
+      ? {
+          litres: diary.firstHalfTotalLitres,
+          amount: diary.firstHalfTotalAmount,
+        }
+      : {
+          litres: diary.secondHalfTotalLitres,
+          amount: diary.secondHalfTotalAmount,
+        };
+
+  return (
     <TableContainer component={Paper} sx={{ mt: 2 }}>
       <Table size="small">
         <TableHead>
@@ -148,10 +165,18 @@ const MilkDiary: React.FC = () => {
               <TableCell>{row.eveningAmount.toFixed(2)}</TableCell>
             </TableRow>
           ))}
+          <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
+            <TableCell colSpan={2}>Total Litres</TableCell>
+            <TableCell colSpan={2}>{halfTotals.litres}</TableCell>
+            <TableCell colSpan={2}>Total Amount</TableCell>
+            <TableCell>{halfTotals.amount.toFixed(2)}</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
   );
+};
+
 
   return (
     <div style={{ padding: 20 }}>
@@ -261,11 +286,33 @@ const MilkDiary: React.FC = () => {
         {diary.totalAmount.toFixed(2)}
       </Typography>
 
+
+<Typography variant="h6" sx={{ mt: 3 }}>
+  Grand Totals
+</Typography>
+<Typography>
+  1–15 → Litres: {diary.firstHalfTotalLitres} | Amount: {diary.firstHalfTotalAmount.toFixed(2)}
+</Typography>
+<Typography>
+  16–30 → Litres: {diary.secondHalfTotalLitres} | Amount: {diary.secondHalfTotalAmount.toFixed(2)}
+</Typography>
+<Typography sx={{ fontWeight: "bold" }}>
+  Overall → Litres: {diary.totalLitres} | Amount: {diary.totalAmount.toFixed(2)}
+</Typography>
+
+
+
       <Button
         variant="contained"
         color="primary"
         sx={{ mt: 3 }}
-        onClick={() => dispatch(submitDiary())}
+        // onClick={() => dispatch(submitDiary())}
+         onClick={() => {
+    if (diary) {
+      dispatch(submitDiary()); // Save to allDiaries
+      dispatch(addSummaryFromDiary(diary)); // Add to summary slice
+    }
+  }}
       >
         Submit Diary
       </Button>
