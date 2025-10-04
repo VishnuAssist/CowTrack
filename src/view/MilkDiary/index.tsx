@@ -52,10 +52,10 @@ const MilkDiary: React.FC = () => {
           perLitreRate: 30,
           firstHalf: generateDays(1, 15),
           secondHalf: generateDays(16, 30),
-          firstHalfTotalLitres: 0,
-          firstHalfTotalAmount: 0,
-          secondHalfTotalLitres: 0,
-          secondHalfTotalAmount: 0
+          // firstHalfTotalLitres: 0,
+          // firstHalfTotalAmount: 0,
+          // secondHalfTotalLitres: 0,
+          // secondHalfTotalAmount: 0
         })
       );
     }

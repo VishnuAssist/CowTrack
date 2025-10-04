@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 interface PageHeaderProps {
   title: string;
+  description?: string;
   icon?: ReactNode;
   btntitle?: string;
   btntitle2?: string;
@@ -12,6 +13,7 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
+  description,
   icon,
   btntitle,
   onActionClick,
@@ -22,6 +24,14 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     <>
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid>
+            <motion.h1
+            initial={{ y: 25, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 2, ease: 'easeInOut' }}
+          >
+            <Typography sx={{ fontSize: '16px', fontWeight: '800' ,    fontFamily: "'Borel', sans-serif",}}>
+            {title}</Typography>
+          </motion.h1>
           <motion.h1
             style={{
               overflow: 'hidden',
@@ -35,19 +45,14 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             <Typography sx={{ fontSize: '22px', fontWeight: '1000' ,fontFamily: "'Jura', sans-serif", }}>
               {/* FarmFusion – Everything farm-related in one place */}
               {/* TrackMyFarm */}
-              CattleSync – Everything farm-related in one place 
+                 {description
+                ? description
+                : 'CattleSync – Everything farm-related in one place'}
             </Typography>
 
             
           </motion.h1>
-          <motion.h1
-            initial={{ y: 25, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
-          >
-            <Typography sx={{ fontSize: '16px', fontWeight: '800' ,    fontFamily: "'Borel', sans-serif",}}>
-            {title}</Typography>
-          </motion.h1>
+        
         </Grid>
         <Grid component={ButtonGroup}>
           {' '}

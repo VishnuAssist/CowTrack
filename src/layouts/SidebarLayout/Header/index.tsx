@@ -74,7 +74,7 @@ function Header({ expand }: { expand: boolean }) {
         alignItems="center"
         spacing={2}
       >
-        <HeaderMenu />
+        {/* <HeaderMenu /> */}
       </Stack>
       <Box display="flex" alignItems="center">
         <HeaderButtons />

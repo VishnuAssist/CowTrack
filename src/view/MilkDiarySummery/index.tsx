@@ -32,9 +32,14 @@ const MilkDiarySummary: React.FC = () => {
   const [selectedDiaryId, setSelectedDiaryId] = useState<number | null>(null);
   const componentRef = useRef<HTMLDivElement>(null);
 
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
+
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  // content: () => componentRef.current,
+});
+
 
   const getDiaryById = (id: number) =>
     allDiaries.find((diary) => diary.id === id);

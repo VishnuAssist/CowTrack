@@ -26,4 +26,8 @@ export interface MilkDiaryType {
   totalLitres: number;
   totalAmount: number;
   notes?: string;
+
+    amountWithdrawn?: boolean;
+  feedsProvided?: boolean;
+  
 }

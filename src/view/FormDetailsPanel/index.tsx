@@ -135,41 +135,41 @@ const mockVisitorData: VisitorRegistrationType = {
 };
 
 // Mock data for Milk Diary
-const mockMilkDiaryData: MilkDiaryType = {
-  id: 1,
-  milkCenterName: 'Green Valley Dairy',
-  milkCenterOwner: 'Mr. Sharma',
-  milkCenterContact: '+91 9876543210',
-  dueTimeMorning: '06:00',
-  dueTimeEvening: '18:00',
-  month: 'January 2024',
-  totalAmount: 45250,
-  totalLitres: 905,
-  notes: 'Regular supply maintained throughout the month',
-  days: [
-    { day: 1, morningLitres: 15, eveningLitres: 16, amount: 1550 },
-    { day: 2, morningLitres: 14, eveningLitres: 15, amount: 1450 },
-    { day: 3, morningLitres: 16, eveningLitres: 17, amount: 1650 },
-    { day: 4, morningLitres: 15, eveningLitres: 16, amount: 1550 },
-    { day: 5, morningLitres: 17, eveningLitres: 18, amount: 1750 }
-  ]
-};
+// const mockMilkDiaryData: MilkDiaryType = {
+//   id: 1,
+//   milkCenterName: 'Green Valley Dairy',
+//   milkCenterOwner: 'Mr. Sharma',
+//   milkCenterContact: '+91 9876543210',
+//   dueTimeMorning: '06:00',
+//   dueTimeEvening: '18:00',
+//   month: 'January 2024',
+//   totalAmount: 45250,
+//   totalLitres: 905,
+//   notes: 'Regular supply maintained throughout the month',
+//   days: [
+//     { day: 1, morningLitres: 15, eveningLitres: 16, amount: 1550 },
+//     { day: 2, morningLitres: 14, eveningLitres: 15, amount: 1450 },
+//     { day: 3, morningLitres: 16, eveningLitres: 17, amount: 1650 },
+//     { day: 4, morningLitres: 15, eveningLitres: 16, amount: 1550 },
+//     { day: 5, morningLitres: 17, eveningLitres: 18, amount: 1750 }
+//   ]
+// };
 
 // Mock data for Milk Diary Summary
-const mockMilkSummaryData: MilkDiarySummaryType = {
-  id: 1,
-  milkCenterName: 'Green Valley Dairy',
-  milkCenterOwner: 'Mr. Sharma',
-  milkCenterContact: '+91 9876543210',
-  invoiceDate: '2024-01-31',
-  totalAmount: 45250,
-  totalLitres: 905,
-  amountWithdrawn: true,
-  purpose: 'Monthly milk supply payment',
-  feedsProvided: true,
-  downloadLink: '/invoices/milk-january-2024.pdf',
-  notes: 'Payment processed successfully. Feeds provided as agreed.'
-};
+// const mockMilkSummaryData: MilkDiarySummaryType = {
+//   id: 1,
+//   milkCenterName: 'Green Valley Dairy',
+//   milkCenterOwner: 'Mr. Sharma',
+//   milkCenterContact: '+91 9876543210',
+//   invoiceDate: '2024-01-31',
+//   totalAmount: 45250,
+//   totalLitres: 905,
+//   amountWithdrawn: true,
+//   purpose: 'Monthly milk supply payment',
+//   feedsProvided: true,
+//   downloadLink: '/invoices/milk-january-2024.pdf',
+//   notes: 'Payment processed successfully. Feeds provided as agreed.'
+// };
 
 // Field Card Component
 const FieldCard = ({
@@ -1023,297 +1023,297 @@ const VisitorRegistrationDetailsAccordion = ({
 };
 
 // Milk Diary Details Component
-const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
-  const [expanded, setExpanded] = useState(false);
+// const MilkDiaryDetailsAccordion = ({ data }: { data: MilkDiaryType }) => {
+//   const [expanded, setExpanded] = useState(false);
 
-  const formatPrice = (amount: number) => {
-    return `₹${amount.toLocaleString('en-IN')}`;
-  };
+//   const formatPrice = (amount: number) => {
+//     return `₹${amount.toLocaleString('en-IN')}`;
+//   };
 
-  const formatLitres = (litres: number) => {
-    return `${litres} litres`;
-  };
+//   const formatLitres = (litres: number) => {
+//     return `${litres} litres`;
+//   };
 
-  const calculateDailyTotal = (day: DailyMilkRecord) => {
-    return day.morningLitres + day.eveningLitres;
-  };
+//   const calculateDailyTotal = (day: DailyMilkRecord) => {
+//     return day.morningLitres + day.eveningLitres;
+//   };
 
-  return (
-    <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography
-          variant="h6"
-          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-        >
-          Milk Diary - {data.month}
-          <Chip
-            label="Daily Records"
-            size="small"
-            color="primary"
-            variant="outlined"
-          />
-        </Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Grid container spacing={2}>
-          {/* Milk Center Information */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Milk Center Name"
-              value={data.milkCenterName}
-              borderColor="#4caf50"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Milk Center Owner"
-              value={data.milkCenterOwner}
-              borderColor="#4caf50"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Contact"
-              value={data.milkCenterContact}
-              borderColor="#4caf50"
-            />
-          </Grid>
+//   return (
+//     <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
+//       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+//         <Typography
+//           variant="h6"
+//           sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+//         >
+//           Milk Diary - {data.month}
+//           <Chip
+//             label="Daily Records"
+//             size="small"
+//             color="primary"
+//             variant="outlined"
+//           />
+//         </Typography>
+//       </AccordionSummary>
+//       <AccordionDetails>
+//         <Grid container spacing={2}>
+//           {/* Milk Center Information */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Milk Center Name"
+//               value={data.milkCenterName}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Milk Center Owner"
+//               value={data.milkCenterOwner}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Contact"
+//               value={data.milkCenterContact}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
 
-          {/* Timing Information */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Morning Due Time"
-              value={data.dueTimeMorning}
-              borderColor="#2196f3"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Evening Due Time"
-              value={data.dueTimeEvening}
-              borderColor="#2196f3"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard label="Month" value={data.month} borderColor="#2196f3" />
-          </Grid>
+//           {/* Timing Information */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Morning Due Time"
+//               value={data.dueTimeMorning}
+//               borderColor="#2196f3"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Evening Due Time"
+//               value={data.dueTimeEvening}
+//               borderColor="#2196f3"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard label="Month" value={data.month} borderColor="#2196f3" />
+//           </Grid>
 
-          {/* Summary Information */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Total Litres"
-              value={formatLitres(data.totalLitres)}
-              borderColor="#ff9800"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Total Amount"
-              value={formatPrice(data.totalAmount)}
-              borderColor="#ff9800"
-            />
-          </Grid>
+//           {/* Summary Information */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Total Litres"
+//               value={formatLitres(data.totalLitres)}
+//               borderColor="#ff9800"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Total Amount"
+//               value={formatPrice(data.totalAmount)}
+//               borderColor="#ff9800"
+//             />
+//           </Grid>
 
-          {/* Daily Records */}
-          <Grid size={{ xs: 12 }}>
-            <Card sx={{ borderLeft: '4px solid #9c27b7', mb: 2 }}>
-              <CardContent>
-                <Typography variant="subtitle1" gutterBottom fontWeight="bold">
-                  Daily Milk Records
-                </Typography>
-                <Grid container spacing={1}>
-                  {data.days.map((dayRecord) => (
-                    <Grid
-                      size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                      key={dayRecord.day}
-                    >
-                      <Card variant="outlined" sx={{ p: 1 }}>
-                        <Typography
-                          variant="subtitle2"
-                          color="primary"
-                          gutterBottom
-                        >
-                          Day {dayRecord.day}
-                        </Typography>
-                        <Typography variant="body2">
-                          Morning: {dayRecord.morningLitres}L
-                        </Typography>
-                        <Typography variant="body2">
-                          Evening: {dayRecord.eveningLitres}L
-                        </Typography>
-                        <Typography variant="body2">
-                          Daily Total: {calculateDailyTotal(dayRecord)}L
-                        </Typography>
-                        <Typography variant="body2" fontWeight="bold">
-                          Amount: ₹{dayRecord.amount}
-                        </Typography>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
+//           {/* Daily Records */}
+//           <Grid size={{ xs: 12 }}>
+//             <Card sx={{ borderLeft: '4px solid #9c27b7', mb: 2 }}>
+//               <CardContent>
+//                 <Typography variant="subtitle1" gutterBottom fontWeight="bold">
+//                   Daily Milk Records
+//                 </Typography>
+//                 <Grid container spacing={1}>
+//                   {data.days.map((dayRecord) => (
+//                     <Grid
+//                       size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+//                       key={dayRecord.day}
+//                     >
+//                       <Card variant="outlined" sx={{ p: 1 }}>
+//                         <Typography
+//                           variant="subtitle2"
+//                           color="primary"
+//                           gutterBottom
+//                         >
+//                           Day {dayRecord.day}
+//                         </Typography>
+//                         <Typography variant="body2">
+//                           Morning: {dayRecord.morningLitres}L
+//                         </Typography>
+//                         <Typography variant="body2">
+//                           Evening: {dayRecord.eveningLitres}L
+//                         </Typography>
+//                         <Typography variant="body2">
+//                           Daily Total: {calculateDailyTotal(dayRecord)}L
+//                         </Typography>
+//                         <Typography variant="body2" fontWeight="bold">
+//                           Amount: ₹{dayRecord.amount}
+//                         </Typography>
+//                       </Card>
+//                     </Grid>
+//                   ))}
+//                 </Grid>
+//               </CardContent>
+//             </Card>
+//           </Grid>
 
-          {/* Notes */}
-          <Grid size={{ xs: 12 }}>
-            <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
-          </Grid>
-        </Grid>
-      </AccordionDetails>
-    </Accordion>
-  );
-};
+//           {/* Notes */}
+//           <Grid size={{ xs: 12 }}>
+//             <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
+//           </Grid>
+//         </Grid>
+//       </AccordionDetails>
+//     </Accordion>
+//   );
+// };
 
 // Milk Diary Summary Details Component
-const MilkDiarySummaryDetailsAccordion = ({
-  data
-}: {
-  data: MilkDiarySummaryType;
-}) => {
-  const [expanded, setExpanded] = useState(false);
+// const MilkDiarySummaryDetailsAccordion = ({
+//   data
+// }: {
+//   data: MilkDiarySummaryType;
+// }) => {
+//   const [expanded, setExpanded] = useState(false);
 
-  const formatPrice = (amount: number) => {
-    return `₹${amount.toLocaleString('en-IN')}`;
-  };
+//   const formatPrice = (amount: number) => {
+//     return `₹${amount.toLocaleString('en-IN')}`;
+//   };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-IN', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
+//   const formatDate = (dateString: string) => {
+//     return new Date(dateString).toLocaleDateString('en-IN', {
+//       day: '2-digit',
+//       month: '2-digit',
+//       year: 'numeric'
+//     });
+//   };
 
-  const formatBoolean = (value?: boolean) => {
-    return value ? 'Yes' : 'No';
-  };
+//   const formatBoolean = (value?: boolean) => {
+//     return value ? 'Yes' : 'No';
+//   };
 
-  return (
-    <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography
-          variant="h6"
-          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-        >
-          Milk Diary Summary
-          <Chip
-            label={data.amountWithdrawn ? 'Paid' : 'Pending'}
-            size="small"
-            color={data.amountWithdrawn ? 'success' : 'warning'}
-            variant="outlined"
-          />
-        </Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Grid container spacing={2}>
-          {/* Milk Center Information */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Milk Center Name"
-              value={data.milkCenterName}
-              borderColor="#4caf50"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Milk Center Owner"
-              value={data.milkCenterOwner}
-              borderColor="#4caf50"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Contact"
-              value={data.milkCenterContact}
-              borderColor="#4caf50"
-            />
-          </Grid>
+//   return (
+//     <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
+//       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+//         <Typography
+//           variant="h6"
+//           sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+//         >
+//           Milk Diary Summary
+//           <Chip
+//             label={data.amountWithdrawn ? 'Paid' : 'Pending'}
+//             size="small"
+//             color={data.amountWithdrawn ? 'success' : 'warning'}
+//             variant="outlined"
+//           />
+//         </Typography>
+//       </AccordionSummary>
+//       <AccordionDetails>
+//         <Grid container spacing={2}>
+//           {/* Milk Center Information */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Milk Center Name"
+//               value={data.milkCenterName}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Milk Center Owner"
+//               value={data.milkCenterOwner}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Contact"
+//               value={data.milkCenterContact}
+//               borderColor="#4caf50"
+//             />
+//           </Grid>
 
-          {/* Invoice Details */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Invoice Date"
-              value={formatDate(data.invoiceDate)}
-              borderColor="#2196f3"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Total Litres"
-              value={`${data.totalLitres} litres`}
-              borderColor="#2196f3"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Total Amount"
-              value={formatPrice(data.totalAmount)}
-              borderColor="#2196f3"
-            />
-          </Grid>
+//           {/* Invoice Details */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Invoice Date"
+//               value={formatDate(data.invoiceDate)}
+//               borderColor="#2196f3"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Total Litres"
+//               value={`${data.totalLitres} litres`}
+//               borderColor="#2196f3"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Total Amount"
+//               value={formatPrice(data.totalAmount)}
+//               borderColor="#2196f3"
+//             />
+//           </Grid>
 
-          {/* Payment Status */}
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Amount Withdrawn"
-              value={formatBoolean(data.amountWithdrawn)}
-              borderColor="#ff9800"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Feeds Provided"
-              value={formatBoolean(data.feedsProvided)}
-              borderColor="#ff9800"
-            />
-          </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FieldCard
-              label="Purpose"
-              value={data.purpose}
-              borderColor="#ff9800"
-            />
-          </Grid>
+//           {/* Payment Status */}
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Amount Withdrawn"
+//               value={formatBoolean(data.amountWithdrawn)}
+//               borderColor="#ff9800"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Feeds Provided"
+//               value={formatBoolean(data.feedsProvided)}
+//               borderColor="#ff9800"
+//             />
+//           </Grid>
+//           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+//             <FieldCard
+//               label="Purpose"
+//               value={data.purpose}
+//               borderColor="#ff9800"
+//             />
+//           </Grid>
 
-          {/* Download Link */}
-          {data.downloadLink && (
-            <Grid size={{ xs: 12 }}>
-              <Card sx={{ borderLeft: '4px solid #9c27b0', mb: 1 }}>
-                <CardContent>
-                  <Typography
-                    variant="subtitle2"
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    Download Invoice
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component="a"
-                    href={data.downloadLink}
-                    sx={{
-                      color: 'primary.main',
-                      textDecoration: 'underline',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    Click here to download the invoice PDF
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          )}
+//           {/* Download Link */}
+//           {data.downloadLink && (
+//             <Grid size={{ xs: 12 }}>
+//               <Card sx={{ borderLeft: '4px solid #9c27b0', mb: 1 }}>
+//                 <CardContent>
+//                   <Typography
+//                     variant="subtitle2"
+//                     color="text.secondary"
+//                     gutterBottom
+//                   >
+//                     Download Invoice
+//                   </Typography>
+//                   <Typography
+//                     variant="body2"
+//                     component="a"
+//                     href={data.downloadLink}
+//                     sx={{
+//                       color: 'primary.main',
+//                       textDecoration: 'underline',
+//                       cursor: 'pointer'
+//                     }}
+//                   >
+//                     Click here to download the invoice PDF
+//                   </Typography>
+//                 </CardContent>
+//               </Card>
+//             </Grid>
+//           )}
 
-          {/* Notes */}
-          <Grid size={{ xs: 12 }}>
-            <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
-          </Grid>
-        </Grid>
-      </AccordionDetails>
-    </Accordion>
-  );
-};
+//           {/* Notes */}
+//           <Grid size={{ xs: 12 }}>
+//             <FieldCard label="Notes" value={data.notes} borderColor="#607d8b" />
+//           </Grid>
+//         </Grid>
+//       </AccordionDetails>
+//     </Accordion>
+//   );
+// };
 
 // Main Component
 const FormDetailsPanelPage = () => {
@@ -1346,18 +1346,18 @@ const FormDetailsPanelPage = () => {
             </Card>
 
             {/* Milk Diary Summary Component */}
-            <Card sx={{ mb: 3 }}>
+            {/* <Card sx={{ mb: 3 }}>
               <CardContent>
                 <MilkDiarySummaryDetailsAccordion data={mockMilkSummaryData} />
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Milk Diary Component */}
-            <Card sx={{ mb: 3 }}>
+            {/* <Card sx={{ mb: 3 }}>
               <CardContent>
                 <MilkDiaryDetailsAccordion data={mockMilkDiaryData} />
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Animal Detail Component */}
             <Card sx={{ mb: 3 }}>
