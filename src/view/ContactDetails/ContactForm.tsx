@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useAppDispatch } from 'src/store/configureStore';
+import { useAppDispatch } from '../../store/configureStore';
 import { addContact, updateContact } from '../../slice/ContactDeatilsSlice';
 import { ContactDetailsType } from '../../models/ContactDetailsType';
 import {
@@ -12,8 +12,8 @@ import {
   MenuItem,
   Grid
 } from '@mui/material';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
 import { useEffect } from 'react';
 
 interface ContactFormProps {

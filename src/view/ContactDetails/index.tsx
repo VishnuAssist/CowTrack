@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import PageHeader from "src/components/PageHeader";
-import PageTitleWrapper from "src/components/PageTitleWrapper";
+import PageHeader from "../../components/PageHeader";
+import PageTitleWrapper from "../../components/PageTitleWrapper";
 import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ContactForm from "./ContactForm";
 import ContactDetails from "./ContactDetails";
 
 import { selectContacts } from "../../selectors/contactsSelectors";
-import { useAppSelector } from "src/store/configureStore";
+import { useAppSelector } from "../../store/configureStore";
 
 export default function ContactPage() {
   const theme = useTheme();

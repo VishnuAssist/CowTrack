@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import router from 'src/router';
+import router from './router';
 
 import { ToastContainer } from "react-toastify";
 import { CssBaseline } from '@mui/material';
@@ -19,3 +19,6 @@ function App() {
   );
 }
 export default App;
+
+
+// நடைவளம் (Nadai Vaḷam) → “Livestock Prosperity”

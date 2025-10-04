@@ -17,8 +17,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { removeAnimalCare, setCurrentPage, setItemsPerPage } from "src/slice/AnimalCareSlice";
-import { AnimalCareType } from "src/models/AnimalCareType";
+import { removeAnimalCare, setCurrentPage, setItemsPerPage } from "../../slice/AnimalCareSlice";
+import { AnimalCareType } from "../../models/AnimalCareType";
 import AnimalCarePreview from "./AnimalCarePreview";
 import AnimalCareForm from "./AnimalCareForm";
 

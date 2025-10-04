@@ -14,8 +14,8 @@ import {
   updateAnimalCare,
 } from '../../slice/AnimalCareSlice';
 import { AnimalCareType, AnimalType } from '../../models/AnimalCareType';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
 
 interface Props {
   form: boolean;

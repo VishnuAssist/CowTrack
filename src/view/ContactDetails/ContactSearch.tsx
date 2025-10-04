@@ -1,5 +1,5 @@
 import { TextField, Box, Grid } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "src/store/configureStore";
+import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 import { setSearchQuery } from "../../slice/ContactDeatilsSlice";
 import { selectSearchQuery } from "../../selectors/contactsSelectors";
 

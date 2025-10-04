@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import PageHeader from "src/components/PageHeader";
-import PageTitleWrapper from "src/components/PageTitleWrapper";
+import PageHeader from "../../components/PageHeader";
+import PageTitleWrapper from "../../components/PageTitleWrapper";
 
 
 const index = () => {

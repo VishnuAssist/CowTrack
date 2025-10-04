@@ -11,8 +11,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addExpense, updateExpense } from '../../slice/ExpenseTrackerSlice';
 import { FarmExpenseType } from '../../models/ExpenseTrackerType';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
 
 interface Props {
   form: boolean;

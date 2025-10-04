@@ -1,0 +1,1 @@
+import{j as e,W as t}from"./index-C4TW4tYM.js";import{P as i,a as r}from"./index-3DUDL6ch.js";import"./Grid-BZAI-RHj.js";const a=()=>e.jsxs("div",{children:[e.jsx(t,{children:e.jsx("title",{children:"Payment"})}),e.jsx(i,{children:e.jsx(r,{title:"Logs",btntitle:"",icon:"",onActionClick:()=>{}})})]});export{a as default};

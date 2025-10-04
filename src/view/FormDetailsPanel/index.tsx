@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import PageHeader from 'src/components/PageHeader';
-import PageTitleWrapper from 'src/components/PageTitleWrapper';
+import PageHeader from '../../components/PageHeader';
+import PageTitleWrapper from '../../components/PageTitleWrapper';
 import {
   Box,
   Grid,
@@ -16,20 +16,20 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Footer from 'src/components/Footer';
-import { AnimalType, AnimalCareType } from 'src/models/AnimalCareType';
-import { FarmerAddType } from 'src/models/FarmerType';
-import { ContactDetailsType, RoleType } from 'src/models/ContactDetailsType';
-import { ExpenseCategory, FarmExpenseType } from 'src/models/ExpenseTrackerType';
+import Footer from '../../components/Footer';
+import { AnimalType, AnimalCareType } from '../../models/AnimalCareType';
+import { FarmerAddType } from '../../models/FarmerType';
+import { ContactDetailsType, RoleType } from '../../models/ContactDetailsType';
+import { ExpenseCategory, FarmExpenseType } from '../../models/ExpenseTrackerType';
 import {
   AnimalDetailsType,
   Gender,
   HealthStatus,
   AnimalType as AnimalCategory
-} from 'src/models/AnimalDetailsType';
-import { VisitorRegistrationType } from 'src/models/VisitorRegistrationType';
-import { DailyMilkRecord, MilkDiaryType } from 'src/models/MilkDairyType';
-import { MilkDiarySummaryType } from 'src/models/MilkDiarySummery';
+} from '../../models/AnimalDetailsType';
+import { VisitorRegistrationType } from '../../models/VisitorRegistrationType';
+import { DailyMilkRecord, MilkDiaryType } from '../../models/MilkDairyType';
+import { MilkDiarySummaryType } from '../../models/MilkDiarySummery';
 import Dashboard from './Dashboard';
 
 // Mock data

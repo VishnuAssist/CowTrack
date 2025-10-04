@@ -21,8 +21,8 @@ import {
 } from "../../slice/MilkDiarySlice";
 // import { RootState } from "../store/store";
 import { DailyMilkRecord } from "../../models/MilkDairyType";
-import { RootState } from "src/store/configureStore";
-import { addSummaryFromDiary } from "src/slice/MilkDiarySummerySlice";
+import { RootState } from "../../store/configureStore";
+import { addSummaryFromDiary } from "../../slice/MilkDiarySummerySlice";
 
 const generateDays = (start: number, end: number): DailyMilkRecord[] =>
   Array.from({ length: end - start + 1 }, (_, i) => ({

@@ -9,8 +9,8 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { AnimalType } from "src/models/AnimalCareType";
-import { setSearchTerm, setAnimalTypeFilter } from "src/slice/AnimalCareSlice";
+import { AnimalType } from "../../models/AnimalCareType";
+import { setSearchTerm, setAnimalTypeFilter } from "../../slice/AnimalCareSlice";
 
 const AnimalCareSearch = () => {
   const dispatch = useDispatch();

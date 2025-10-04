@@ -23,8 +23,8 @@ import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import Modechanger from '../Buttons/Modechanger';
-import { logout } from 'src/slice/loginSlice';
-import { useAppDispatch } from 'src/store/configureStore';
+import { logout } from '../../../../slice/loginSlice';
+import { useAppDispatch } from '../../../../store/configureStore';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `

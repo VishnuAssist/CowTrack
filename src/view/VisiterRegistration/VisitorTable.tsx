@@ -21,9 +21,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from "framer-motion";
 
-import { VisitorRegistrationType } from 'src/models/VisitorRegistrationType';
+import { VisitorRegistrationType } from '../../models/VisitorRegistrationType';
 import VisitorForm from './VisitorForm';
-import { removeVisitor, setSearchTerm, setCurrentPage, setItemsPerPage } from 'src/slice/VisitorSlice';
+import { removeVisitor, setSearchTerm, setCurrentPage, setItemsPerPage } from '../../slice/VisitorSlice';
 import PreviewVisitor from './VisitorPreview';
 
 

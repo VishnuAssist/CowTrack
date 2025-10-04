@@ -2,10 +2,10 @@ import { Suspense, lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { RouteObject } from 'react-router';
 
-import SidebarLayout from 'src/layouts/SidebarLayout';
-import BaseLayout from 'src/layouts/BaseLayout';
+import SidebarLayout from './layouts/SidebarLayout';
+import BaseLayout from './layouts/BaseLayout';
 
-import SuspenseLoader from 'src/components/SuspenseLoader';
+import SuspenseLoader from './components/SuspenseLoader';
 
 const Loader = (Component) => (props) =>
   (
@@ -16,26 +16,26 @@ const Loader = (Component) => (props) =>
 
 // Pages
 
-const Login = Loader(lazy(() => import('src/view/Authentication/loginPage')));
+const Login = Loader(lazy(() => import('./view/Authentication/loginPage')));
 
 // Dashboards
 
-const Dashboard = Loader(lazy(() => import('src/view/Dashboard')));
+const Dashboard = Loader(lazy(() => import('./view/Dashboard')));
 
 
 
 // Components
-const MilkDiary = Loader(lazy(() => import('src/view/MilkDiary')));
-const MilkDiarySummery = Loader(lazy(() => import('src/view/MilkDiarySummery')));
-const AnimalInfo = Loader(lazy(() => import('src/view/AnimalInfo')));
-const ExpenseTracker = Loader(lazy(() => import('src/view/ExpenseTracker')));
-const AnimalCare = Loader(lazy(() => import('src/view/AnimalCare')));
-const FarmerJoin = Loader(lazy(() => import('src/view/FarmerJoin')));
+const MilkDiary = Loader(lazy(() => import('./view/MilkDiary')));
+const MilkDiarySummery = Loader(lazy(() => import('./view/MilkDiarySummery')));
+const AnimalInfo = Loader(lazy(() => import('./view/AnimalInfo')));
+const ExpenseTracker = Loader(lazy(() => import('./view/ExpenseTracker')));
+const AnimalCare = Loader(lazy(() => import('./view/AnimalCare')));
+const FarmerJoin = Loader(lazy(() => import('./view/FarmerJoin')));
 
-const ContactDetails = Loader(lazy(()=> import('src/view/ContactDetails')));
+const ContactDetails = Loader(lazy(()=> import('./view/ContactDetails')));
 
-const VisiterRegistration = Loader(lazy(()=> import('src/view/VisiterRegistration')));
-const FormDetailsPanel = Loader(lazy(()=> import('src/view/FormDetailsPanel')))
+const VisiterRegistration = Loader(lazy(()=> import('./view/VisiterRegistration')));
+const FormDetailsPanel = Loader(lazy(()=> import('./view/FormDetailsPanel')))
 
 
 const routes: RouteObject[] = [

@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { useAppDispatch, useAppSelector } from 'src/store/configureStore';
+import { useAppDispatch, useAppSelector } from '../../store/configureStore';
 import {
   deleteContact,
   setCurrentPage,
@@ -22,7 +22,7 @@ import {
   selectPageSize
 } from '../../selectors/contactsSelectors';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ContactDetailsType } from 'src/models/ContactDetailsType';
+import { ContactDetailsType } from '../../models/ContactDetailsType';
 import { useState } from 'react';
 import ContactForm from './ContactForm';
 import ContactPreview from './ContactPreview';

@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import PageHeader from "src/components/PageHeader";
-import PageTitleWrapper from "src/components/PageTitleWrapper";
+import PageHeader from "../../components/PageHeader";
+import PageTitleWrapper from "../../components/PageTitleWrapper";
 import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import AnimalCareDetails from "./AnimalCareDetails";
-import Footer from "src/components/Footer";
+import Footer from "../../components/Footer";
 import AnimalCareForm from "./AnimalCareForm"; // You can add similar form like FarmerForm
 
 const Index = () => {

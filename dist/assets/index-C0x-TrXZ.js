@@ -1,0 +1,3 @@
+import{j as e,s as n,B as t,o as r,aV as a}from"./index-C4TW4tYM.js";import{C as i}from"./index-3DUDL6ch.js";const o=n(i)(({theme:s})=>`
+        margin-top: ${s.spacing(4)};
+`);function x(){return e.jsx(o,{className:"footer-wrapper",children:e.jsxs(t,{pb:4,display:{xs:"block",md:"flex"},alignItems:"center",textAlign:{xs:"center",md:"left"},justifyContent:"space-between",children:[e.jsx(t,{children:e.jsx(r,{variant:"subtitle1",children:"© 2025 - CattleSync"})}),e.jsxs(r,{sx:{pt:{xs:2,md:0}},variant:"subtitle1",children:["Crafted by"," ",e.jsx(a,{href:"https://thevishven.netlify.app/",target:"_blank",rel:"noopener noreferrer",children:"thevishven.netlify.app"})]})]})})}export{x as F};

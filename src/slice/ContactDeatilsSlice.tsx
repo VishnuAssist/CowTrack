@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ContactDetailsType } from "../models/ContactDetailsType";
-import { ContactDetailsStaticData } from "src/components/SliceStaticData";
+import { ContactDetailsStaticData } from "../components/SliceStaticData";
 
 interface ContactsState {
   contacts: ContactDetailsType[];

@@ -1,6 +1,6 @@
 import { Box, Grid, TextField, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchTerm } from 'src/slice/VisitorSlice';
+import { setSearchTerm } from '../../slice/VisitorSlice';
 
 const VisitorSearch = () => {
 const dispatch =useDispatch();

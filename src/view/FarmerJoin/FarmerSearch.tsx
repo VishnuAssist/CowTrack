@@ -1,7 +1,7 @@
 import { Box, Grid, TextField, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchTerm, setRoleFilter } from 'src/slice/FarmerSlice';
+import { setSearchTerm, setRoleFilter } from '../../slice/FarmerSlice';
 
 const FarmerSearch = () => {
   const dispatch = useDispatch();

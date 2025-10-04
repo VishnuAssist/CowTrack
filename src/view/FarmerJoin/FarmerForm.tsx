@@ -18,8 +18,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { addFarmer, updateFarmer } from '../../slice/FarmerSlice';
 import { FarmerAddType } from '../../models/FarmerType';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
 
 interface Props {
   form: boolean;

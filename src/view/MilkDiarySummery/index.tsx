@@ -21,7 +21,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import { useReactToPrint } from "react-to-print";
 
 import { updateSummary } from "../../slice/MilkDiarySummerySlice";
-import { useAppDispatch, useAppSelector } from "src/store/configureStore";
+import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 
 const MilkDiarySummary: React.FC = () => {
   const { summaries } = useAppSelector((state) => state.milkDiarySummary);

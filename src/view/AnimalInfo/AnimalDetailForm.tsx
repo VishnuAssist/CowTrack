@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
 import { addAnimal, updateAnimal } from '../../slice/AnimalDetailsSlice';
 import {
   AnimalDetailsType,

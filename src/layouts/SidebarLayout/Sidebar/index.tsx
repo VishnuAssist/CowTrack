@@ -4,7 +4,7 @@
 import { useContext } from "react";
 import Scrollbar from "../../../components/Scrollbar";
 // import { SidebarContext } from "../../../contexts/sidebarContext";
- import { SidebarContext } from 'src/contexts/SidebarContext';
+ import { SidebarContext } from '../../../contexts/SidebarContext';
 import { Link } from "react-router-dom";
 
 import {

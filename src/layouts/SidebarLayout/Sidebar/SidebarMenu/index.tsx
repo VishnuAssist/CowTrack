@@ -13,7 +13,7 @@ import {
   tooltipClasses,
 } from "@mui/material";
 import { NavLink as RouterLink } from "react-router-dom";
-import { SidebarContext } from 'src/contexts/SidebarContext';
+import { SidebarContext } from '../../../../contexts/SidebarContext';
 
 import { RootState, useAppSelector } from "../../../../store/configureStore";
 

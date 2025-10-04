@@ -2,10 +2,10 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid } from 
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import CustomInput from 'src/components/FormComponents/CustomInput';
-import CustomSelect from 'src/components/FormComponents/CustomSelect';
-import { VisitorRegistrationType } from 'src/models/VisitorRegistrationType';
-import { addVisitor, updateVisitor } from 'src/slice/VisitorSlice';
+import CustomInput from '../../components/FormComponents/CustomInput';
+import CustomSelect from '../../components/FormComponents/CustomSelect';
+import { VisitorRegistrationType } from '../../models/VisitorRegistrationType';
+import { addVisitor, updateVisitor } from '../../slice/VisitorSlice';
 
 
 interface Props {

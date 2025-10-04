@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import PageHeader from "src/components/PageHeader";
-import PageTitleWrapper from "src/components/PageTitleWrapper";
+import PageHeader from "../../components/PageHeader";
+import PageTitleWrapper from "../../components/PageTitleWrapper";
 
 import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseDetails from "./ExpenseDetails";
-import Footer from "src/components/Footer";
+import Footer from "../../components/Footer";
 
 const ExpenseIndex = () => {
   const theme = useTheme();
